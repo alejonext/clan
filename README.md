@@ -1,6 +1,6 @@
-# Servidor de mochileros
+# Servidor de Clan
 
-Este servidor, e suna metodologia para el usdo del proyecto Mochileros.
+Este servidor, e suna metodologia para el usdo del proyecto Clan.
 
 ## Prerequisitos
 
