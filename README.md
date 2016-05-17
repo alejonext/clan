@@ -12,13 +12,13 @@ Debe tener instalado esto
 
 Haga
 
-	$ git clone git@gitlab.com/alejonext/mochileroserver.git mochilero
+	$ git clone git@githun.com/alejonext/clan.git clan
 
 ## Instalacion
 
 La instalacion, se hace apartir de [npm](http://npmjs.org), por ende se hace
 
-	$ cd mochilero
+	$ cd clan
 	$ npm install
 
 ## Iniciar
