@@ -8,7 +8,7 @@
     "build": "babel src -d lib",
     "start": "node lib",
     "prestart": "npm run build",
-    "dev": "nodemon --ignore 'public/*.js' -e js,jade --exec 'babel-node src'"
+    "dev": "nodemon --ignore 'public/*.js' -e js,pug --exec 'babel-node src'"
   },
   "babel": {
     "presets": [
