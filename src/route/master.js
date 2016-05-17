@@ -9,8 +9,8 @@ export default function () {
 	app.set('env', GLOBAL.CONFIG.server.status);
 	app.set('view engine', 'pug');
 	app.set('views', path.join( __dirname, '..', '..',  'view'));
-	app.use('/template/:name([a-z]+)', (req, res) => res.render( 'template/' + req.params.name + '.jade') );
-	app.use('/*', (req, res) => res.render('app.jade') );
+	app.use('/template/:name([a-z]+)', (req, res) => res.render( 'template/' + req.params.name + '.pug') );
+	app.use('/*', (req, res) => res.render('app.pug') );
 
 	return app;
 }

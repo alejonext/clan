@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src -d lib",
     "start": "node lib",
-    "prestart": "babel src -d lib",
-    "dev": "nodemon --ignore 'public/*.js' -e js,jade  --exec 'babel-node src'"
+    "prestart": "npm run build",
+    "dev": "nodemon --ignore 'public/*.js' -e js,jade --exec 'babel-node src'"
   },
   "babel": {
     "presets": [
@@ -58,6 +58,7 @@
     "mongoose-intl-phone-number": "^0.4.2",
     "ng-dialog": "^0.6.1",
     "node-sass": "^3.7.0",
+    "pug": "^2.0.0-alpha7",
     "uglifyify": "*"
   }
 }
