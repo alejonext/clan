@@ -6,6 +6,7 @@ import 'angular-route';
 import 'angular-resource';
 import 'angular-messages';
 import 'angular-animate';
+import 'angularjs-viewhead';
 import 'ngsticky';
 import 'ng-dialog';
 import 'moment';
@@ -30,6 +31,7 @@ angular
 	.module(process.env.app, [
 		'ng',
 		'ngRoute',
+		'viewhead',
 		'ngAnimate',
 		'ngMessages',
 		'ngResource',

@@ -1,7 +1,7 @@
 doctype html
 html( ng-app=render.app )
 	head
-		title Ok
+		title( ng-bind-template="{{viewTitle}} {{viewTitle ? '- ' : '' }}Clan Digital" ) CLAN Digital
 		base( href="/")
 		link( href='https://fonts.googleapis.com/css?family=Poppins:400,600,500,300' rel='stylesheet' type='text/css')
 		link( rel="stylesheet", type="text/css", href=cache('ink.css') )
