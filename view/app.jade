@@ -1,0 +1,46 @@
+doctype html
+html( ng-app=render.app )
+	head
+		title Ok
+		base( href="/")
+		link( href='https://fonts.googleapis.com/css?family=Poppins:400,600,500,300' rel='stylesheet' type='text/css')
+		link( rel="stylesheet", type="text/css", href=cache('ink.css') )
+		link( rel="stylesheet", type="text/css", href=cache('start.css') )
+		script(type="text/javascript", src=cache('lib.js') )
+		meta( name="carrusel", daturl=cache('carrusel1-960.jpg') )
+		meta( name="carrusel", daturl=cache('carrusel2-960.jpg') )
+		meta( name="carrusel", daturl=cache('carrusel3-960.jpg') )
+		meta( name="carrusel", daturl=cache('carrusel4-960.jpg') )
+		meta( name="carrusel", daturl=cache('carrusel5-960.jpg') )
+		meta( name="carrusel", daturl=cache('carrusel6-960.jpg') )
+		meta( name="carrusel", daturl=cache('carrusel7-960.jpg') )
+		meta( name="carrusel", daturl=cache('carrusel9-960.jpg') )
+	body.all-100( ng-controller="app as a" )
+		.all-100.blur.minum( ng-height="a.image" )
+			nav.ng-navigation.ng-grid.mosxh.bar
+				ul.menu.horizontal.white.push-left
+					li: a( href="/")
+						img(src=cache('logo-33.png'))
+						span.hide-all CLAN
+				ul.menu.horizontal.white.push-right
+					li: a( href="/donacion" ) Donativos
+					li: a( href="/contacto" ) Contacto
+					li
+						a.fa.fa-share-alt
+						ul.submenu
+							li: a.fa.fa-facebook-official
+							li: a.fa.fa-twitter
+			nav.ng-navigation.ng-grid.mosxh
+				ul.pagination.chevron( ng-hide="a.show" )
+					li.previous: a.put( ng-click="a.isClick(-1)" ): span Atras
+					li.next: a.put( ng-click="a.isClick(1)" ): span Siguiente
+
+		.all-100.blur( ng-view )
+
+		footer.all-100.double-vertical-padding
+			nav.ng-navigation.ng-grid
+				ul.menu
+					li: a uno
+					li: a dos
+					li: a tres
+					li: a cuatro

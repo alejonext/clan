@@ -1,0 +1,45 @@
+.double-vertical-padding.all-100: .ng-grid
+	.column-group.gutters
+		.all-50
+			h1 joder
+			p {{d |json}}
+		form.all-50.form-ng
+			bar( color="blue", progress="20" ) Hola
+			.button-group.all-100
+				label.ng-button.all-33( class="{{d.wh === 'liena' ? 'orange' : 'blue' }}" for="liena" ) En linea
+				label.ng-button.all-33( class="{{d.wh === 'manual' ? 'orange' : 'blue' }}" for="manual" ) Consignacion
+				label.ng-button.all-33( class="{{d.wh === 'otros' ? 'orange' : 'blue' }}" for="otros" ) Otros
+				input.ng-hide.all-hide#liena( type="radio", name="wh", value="liena", ng-model="d.wh", ng-required )
+				input.ng-hide.all-hide#manual( type="radio", name="wh", value="manual", ng-model="d.wh", ng-required )
+				input.ng-hide.all-hide#otros( type="radio", name="wh", value="otros", ng-model="d.wh", ng-required )
+
+
+			.all-100.half-top-padding( ng-if="d.wh === 'liena'" )
+				.button-group
+					label.ng-button.all-50( class="{{d.type === 'paypal' ? 'orange' : 'blue' }}" for="paypal" ) Paypal
+					label.ng-button.all-50( class="{{d.type === 'bitcoin' ? 'orange' : 'blue' }}" for="bitcoin" ) BitCoin
+					input.ng-hide.all-hide#bitcoin( type="radio", name="wh", value="bitcoin", ng-model="d.type", ng-required )
+					input.ng-hide.all-hide#paypal( type="radio", name="wh", value="paypal", ng-model="d.type", ng-required )
+					//- button.ng-button.all-33 Otros
+
+			dl.all-100.half-top-padding( ng-if="d.wh === 'manual'" )
+				dt Banco
+				dd Numero Pepito
+
+			.all-100.half-top-padding( ng-if="d.wh === 'otros'" )
+				p ¡Cuentanos!
+				.control-group
+					label.ng-hide.all-hide( for="name" ) Nombre
+					.control.required: input.half-padding#name( placeholder="Nombres y Apellidos *", type="text", ng-model="d.name", ng-required )
+				.control-group
+					label.ng-hide.all-hide(for="email") Email
+					.control.required: input.half-padding#email( placeholder="E-Mail *", type="email", ng-model="d.email", ng-required  )
+				.control-group
+					label.ng-hide.all-hide( for="tel" ) Movil
+					.control.required: input.half-padding#tel( placeholder="Celular *", type="text", ng-model="d.movil", ng-required  )
+				.control-group
+					label.ng-hide.all-hide( for="text" ) Municipio
+					.control.required: textarea.half-padding#text( ng-model="d.text", ng-required  )
+				p.tip * Requerido
+				.control-group.top-space
+					button.ng-button.orange.all-100.half-padding( ng-click="l.sender()" ) ¡Inscribete Ahora!

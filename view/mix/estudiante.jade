@@ -1,0 +1,16 @@
+h2.align-center empieza a aprender
+.control-group
+	label.ng-hide.all-hide( for="name" ) Nombre
+	.control.required: input.half-padding#name( placeholder="Nombres y Apellidos *", type="text", ng-model="l.name", ng-required )
+.control-group
+	label.ng-hide.all-hide(for="email") Email
+	.control.required: input.half-padding#email( placeholder="E-Mail *", type="email", ng-model="l.email",  ng-required  )
+.control-group
+	label.ng-hide.all-hide( for="tel" ) Movil
+	.control.required: input.half-padding#tel( placeholder="Celular *", type="number", ng-model="l.movil",  ng-required  )
+.control-group
+	label.ng-hide.all-hide( for="mun" ) Municipio
+	.control.required: input.half-padding#mun( placeholder="Municipio *", type="text", ng-model="l.municipio",  ng-required  )
+p.tip * Requerido
+.control-group.top-space
+	button.ng-button.orange.all-100.half-padding( ng-click="l.send()" ) ¡Inscribete Ahora!

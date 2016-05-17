@@ -1,0 +1,39 @@
+default:
+  port: 2000
+  ssl: false
+  confirm: key
+  temp: /tmp
+  mongo: mongodb://127.0.0.1:27017/testclan
+  key:
+    paypal:
+      key: YourKeyDev
+      secret: YourSecretDev
+    coinbase:
+      key: YourKeyDev
+      secret: YourSecretDev
+    facebook:
+      key: YourKeyDev
+      secret: YourSecretDev
+  app:
+    api: /api
+    cdn: /cdn
+
+production:
+  ssl: true
+  mongo: mongodb://127.0.0.1:27017/clan
+  confirm: key
+  key:
+    paypal:
+      key: YourKey
+      secret: YourSecret
+    coinbase:
+      key: YourKey
+      secret: YourSecret
+    facebook:
+      key: YourKey
+      secret: YourSecret
+  port: #{process.env.PORT}
+  ip: #{process.env.IP}
+  app:
+    api: /api
+    cdn: /cdn

@@ -1,0 +1,16 @@
+doctype html
+html
+	head
+		title Ok
+		link( rel="stylesheet", type="text/css", href=cache('ink.css') )
+		script(type="text/javascript", src=cache('lib.js') )
+	body.all-100( ng-app=app )
+		p vamos a empezar
+		div.all-100( menu )
+			block menu
+
+		div.all-100( ng-view )
+
+		footer.all-100
+
+
