@@ -1,5 +1,5 @@
 .double-vertical-padding.all-100
-	p ¡Cuentanos!
+	p( viewTitle  ) ¡Cuentanos!
 	.control-group
 		label.ng-hide.all-hide( for="name" ) Nombre
 		.control.required: input.half-padding#name( placeholder="Nombres y Apellidos *", type="text", ng-model="c.name", ng-required )
@@ -9,9 +9,6 @@
 	.control-group
 		label.ng-hide.all-hide( for="tel" ) Movil
 		.control.required: input.half-padding#tel( placeholder="Celular *", type="text", ng-model="c.movil", ng-required  )
-	.control-group
-		label.ng-hide.all-hide( for="text" ) Municipio
-		.control.required: textarea.half-padding#text( ng-model="c.text", ng-required  )
 	p.tip * Requerido
 	.control-group.top-space
 		button.ng-button.orange.all-100.half-padding( ng-click="l.sender()" ) ¡Inscribete Ahora!

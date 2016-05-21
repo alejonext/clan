@@ -1,3 +1,4 @@
+
 @import "contrib/compass/css3";
 @import "contrib/compass/utilities";
  
@@ -32,6 +33,21 @@ html, body, .minum {
 	background: $white;
 }
 
+text {
+  font-family : $sans-serif-font-stack;
+  &.medi {
+    font-size : 11.5px;
+  }
+  &.fill-white {
+    fill : $white;
+    font-size : 13.1289px;
+    &.big {
+      font-size : 16px;
+    }
+  }
+}
+
+
 .blue {
 	background: $blue;
 	color : $white;
@@ -40,8 +56,15 @@ html, body, .minum {
 .hand {
   cursor: pointer;
   text-decoration: none;
+  circle, path {
+    fill : $white;
+  }
+
   &:hover {
     text-decoration: none;
+    circle, path {
+      fill : $orange;
+    }
   }
 }
 

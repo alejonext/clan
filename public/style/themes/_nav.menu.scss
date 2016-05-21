@@ -9,7 +9,7 @@
             @include nav-menu();
 
             // defines custom themes
-            &.white     { @include nav-menu($white); }
+            &.white     { @include nav-menu(rgba(255, 255, 255, 0.001)); }
             &.grey      { @include nav-menu($grey-15); }
             &.black     { @include nav-menu($grey-90); }
             &.blue      { @include nav-menu($blue); }
