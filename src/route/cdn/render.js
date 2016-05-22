@@ -6,7 +6,6 @@ import moment from 'moment';
 import fs from 'fs';
 import path from 'path';
 import async from 'async';
-import util from 'util';
 import envify from 'envify/custom';
 
 import mime from 'mime';
@@ -236,8 +235,8 @@ export function JS (req, res, next) {
 }
 
 export function send (file, req, res, next) {
-	if( util.isError(file) || !_.isString(file)){
-		return next( util.isError(file) ? file : new Error(file.toString().replace(/error(\s)?:/i, '') ) );
+	if( file instanceof Error || !_.isString(file)){
+		return next( file instanceof Error ? file : new Error(file.toString().replace(/error(\s)?:/i, '') ) );
 	}
 
 	fs.stat(file, (err, exists) => {

@@ -1,17 +1,15 @@
 extends ./inner-landing
 
 block images
-	li: img( src= )
-	li: img( src= )
-	li: img( src= )
-	li: img( src= )
+	li: img.all-100( src=cache('landing4-960.jpg') )
+	li: img.all-100( src=cache('landing5-960.jpg') )
 	viewTitle.hide-all.ng-hide Soy estudiante
 
 block selector
 	li.all-33.align-center
 		label.all-100( for="diseno" ) 
 			.circule.push-center: .click( class="{{ l.class === 'diseno' }}-check" )
-			b.color-blue= 'Diseño Gráfico'
+			b.color-blue Diseño Gráfico
 		input.ng-hide.all-hide#diseno( type="radio", name="class", value="diseno", ng-model="l.class",  ng-required )
 	li.all-33.align-center
 		label.all-100( for="3d" )

@@ -1,12 +1,14 @@
 doctype html
 html( ng-app=render.app )
 	head
-		title( ng-bind-template="{{viewTitle}} {{viewTitle ? '- ' : '' }}Clan Digital" ) CLAN Digital
 		base( href="/")
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta( name="viewport" content="width=device-width, initial-scale=1" )
+		title( ng-bind-template="{{viewTitle}} {{viewTitle ? '- ' : '' }}Clan Digital" ) CLAN Digital
 		link( href='https://fonts.googleapis.com/css?family=Poppins:400,600,500,300' rel='stylesheet' type='text/css')
 		link( rel="stylesheet", type="text/css", href=cache('ink.css') )
 		link( rel="stylesheet", type="text/css", href=cache('start.css') )
-		script(type="text/javascript", src=cache('lib.js') )
 		meta( name="carrusel", daturl=cache('carrusel1-960.jpg') )
 		meta( name="carrusel", daturl=cache('carrusel2-960.jpg') )
 		meta( name="carrusel", daturl=cache('carrusel3-960.jpg') )
@@ -15,6 +17,8 @@ html( ng-app=render.app )
 		meta( name="carrusel", daturl=cache('carrusel6-960.jpg') )
 		meta( name="carrusel", daturl=cache('carrusel7-960.jpg') )
 		meta( name="carrusel", daturl=cache('carrusel9-960.jpg') )
+		meta( name="carrusel", daturl=cache('carrusel10-960.jpg') )
+		script(type="text/javascript", src=cache('lib.js') )
 	body.all-100( ng-controller="app as a" )
 		.all-100.blur.minum( ng-height="a.image" )
 			nav.ng-navigation.ng-grid.mosxh.bar
@@ -37,10 +41,17 @@ html( ng-app=render.app )
 
 		.all-100.blur( ng-view )
 
-		footer.all-100.double-vertical-padding
-			nav.ng-navigation.ng-grid
-				ul.menu
-					li: a uno
-					li: a dos
-					li: a tres
-					li: a cuatro
+		footer.ng-grid
+			nav.ng-navigation.all-60.double-vertical-padding.push-center.align-center
+				ul.orange.breadcrumbs.double-top-padding
+					li: a.small( href="tel:+57301000000" ) (+57) 301000000
+					li: a.small( href="mailto:clandigital@opensie.org" ) clandigital@opensie.org
+					li: a.small( href="geo:?q=Ladirecion" ) Direccion
+				ul.orange.breadcrumbs
+					li: a.small( href="mailto:acdemic@opensie.org" ) acdemic@opensie.org
+					li: a.small( href="http://opensie.org" ) OpenSie
+					li: a.small( href="http://twitter.com/opensie" ) @OpenSie
+					li: a.small( href="http://facebook.com/opensie" ) /OpenSie
+				ul.orange.breadcrumbs.double-bottom-padding
+					li: a.small Bogota
+					li: a.small Colombia
