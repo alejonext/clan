@@ -55,7 +55,7 @@
     "express": "^4.13.4",
     "konfig": "^0.2.1",
     "mime": "^1.3.4",
-    "mine": "*",
+    "mine": "^0.1.0",
     "moment": "^2.13.0",
     "mongoose": "^4.4.19",
     "mongoose-intl-phone-number": "^0.4.3",

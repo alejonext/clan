@@ -4,8 +4,15 @@
 }
 
 // hide visible element
-.hide-all {
+.hide-all, .#{$ink-class-prefix}-hide:not(.#{$ink-class-prefix}-hide-animate), [#{$ink-class-prefix}\:cloak],[#{$ink-class-prefix}-cloak],[data-#{$ink-class-prefix}-cloak],[x-#{$ink-class-prefix}-cloak],.#{$ink-class-prefix}-cloak,.x-#{$ink-class-prefix}-cloak {
     display: none !important; 
+}
+
+.#{$ink-class-prefix}-animate-shim {
+    visibility:hidden;
+}
+.#{$ink-class-prefix}-anchor {
+    position:absolute;
 }
 
 // Removes margin

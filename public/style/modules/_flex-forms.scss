@@ -1,4 +1,4 @@
-.#{$form-class-name} {
+.#{$form-class-name}, #{$ink-class-prefix }\:form {
 
     fieldset {
         border: none;

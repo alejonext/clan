@@ -28,7 +28,7 @@ import * as bar from './directive/bar';
 
 // Run
 angular
-	.module(process.env.app, [
+	.module(process.env.hash, [
 		'ng',
 		'ngRoute',
 		'viewhead',

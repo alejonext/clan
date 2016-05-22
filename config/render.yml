@@ -1,13 +1,11 @@
 default:
-  app: name
   host: http://localhost:2000
   compress:
-    style: false
-    script: false
-    html: false
+    style: true
+    script: true
+    html: true
 
 production:
-  app: name
   host: http://localhost:2000
   maxPoint : 50000000
   compress:

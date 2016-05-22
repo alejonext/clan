@@ -19,10 +19,9 @@ const not = /(?:Gruntfile|gulpfile|conf|example|demo|support|specs|builder|bin|r
 function renderCSS (scr, out, cb){
 	sass.render({
 		file : scr,
-		noLineComments: false,
+		noLineComments: !GLOBAL.CONFIG.render.compress.style,
 		sourceMapContents : !GLOBAL.CONFIG.render.compress.style,
 		sourceComments : !GLOBAL.CONFIG.render.compress.style,
-		//imagePath :
 		outputStyle: GLOBAL.CONFIG.render.compress.style ? 'compressed' : 'nested',
 		includePaths : [
 			path.join(__dirname, '..', '..' , '..', 'public', 'style', 'lib' ),

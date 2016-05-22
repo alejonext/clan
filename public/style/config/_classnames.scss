@@ -1,12 +1,5 @@
-/**
- * Ink class names prefix
- * Used in all of Inks components root elements
- */
 $ink-class-prefix             : ng !default;
 
-/**
- * Grid class names
- */
 $horizontal : horizontal !default;
 $vertical: vertical !default;
 $half: half !default;
@@ -35,60 +28,26 @@ $grid-half-vertical-gutters-class-name   : #{$half}-#{$vertical}-#{$grid-gutters
 $grid-quarter-vertical-gutters-class-name: #{$quarter}-#{$vertical}-#{$grid-gutters-class-name} !default;
 $grid-double-vertical-gutters-class-name : #{$double}-#{$vertical}-#{$grid-gutters-class-name} !default;
 
-/**
- * Alerts class names
- */
 $alert-class-name: #{$ink-class-prefix}-alert !default;
 
-/**
- * Badges class names
- */
 $badge-class-name: #{$ink-class-prefix}-badge !default;
 
-/**
- * Buttons class names
- */
 $button-class-name: #{$ink-class-prefix}-button !default;
 
-
-/**
- * Dismiss class names
- */
 $dismiss-class-name: #{$ink-class-prefix}-dismiss !default;
 
-/**
- * Forms class names
- */
 $form-class-name: form-#{$ink-class-prefix} !default;
 
-/**
- * Labels class names
- */
 $label-class-name: #{$ink-class-prefix}-label !default;
 
-/**
- * Navigation class names
- */
 $navigation-class-name: #{$ink-class-prefix}-navigation !default;
 
-/**
- * Dropdown class names
- */
 $dropdown-class-name: #{$ink-class-prefix}-dropdown !default;
 
-/**
- * Tables class names
- */
 $table-class-name: #{$ink-class-prefix}-table !default;
 
-/**
- * Images class names
- */
 $image-class-name: #{$ink-class-prefix}-image !default;
 
-/**
- * JS UI components classe names
- */
 $carousel-class-name        : #{$ink-class-prefix}-carousel !default;
 $drawer-class-name          : #{$ink-class-prefix}-drawer !default;
 $shade-class-name           : #{$ink-class-prefix}-shade !default;

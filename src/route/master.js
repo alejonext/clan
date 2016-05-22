@@ -6,6 +6,7 @@ export default function () {
 	var app = express(); 
 	app.locals.cache = cache;
 	app.locals.render = GLOBAL.CONFIG.render;
+	app.locals.render.hash = ( new Buffer(process.env.npm_package_version, 'utf8' ) ).toString('hex');
 	app.set('env', GLOBAL.CONFIG.server.status);
 	app.set('view engine', 'pug');
 	app.set('views', path.join( __dirname, '..', '..',  'view'));
