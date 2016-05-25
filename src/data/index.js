@@ -5,6 +5,10 @@ import * as municipio from './municipio';
 import * as pvd from './pvd';
 import * as people from './people';
 
+/**
+ * @param  {String} 	Direcion del MongoDB
+ * @return {Object}		Objecto que se conetruye Mongo
+ */
 export default function (url) {
 	mongo.connect(url);
 	mongo.model(done.name, done.schema);

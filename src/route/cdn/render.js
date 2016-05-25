@@ -16,6 +16,13 @@ const time = 31104000;
 const jss = /(css|swf|map|otf|eot|svg|ttf|woff|woff2)$/i;
 const not = /(?:Gruntfile|gulpfile|conf|example|demo|support|specs|builder|bin|readme|src|test|scss|\.\.)/i;
 
+/**
+ * Contrustructor de CSS
+ * @param  {String}       Lugar donde se ecuentra el codigo
+ * @param  {String}       Lugar donde se implemara el codigo compliado
+ * @param  {Function}     Funciona para recibir si existe algun problema
+ * @return {Void}
+ */
 function renderCSS (scr, out, cb){
 	sass.render({
 		file : scr,
@@ -38,6 +45,13 @@ function renderCSS (scr, out, cb){
 	});
 }
 
+/**
+ * Contrustructor SCRIPTS en Javascript
+ * @param  {String}       Lugar donde se ecuentra el codigo
+ * @param  {String}       Lugar donde se implemara el codigo compliado
+ * @param  {Function}     Funciona para recibir si existe algun problema
+ * @return {Void}
+ */
 function renderJS (raw, js, cb) {
 	var b = browserify({ 
 		debug: !GLOBAL.CONFIG.render.compress.script
@@ -106,16 +120,38 @@ function renderJS (raw, js, cb) {
 	}
 }
 
+/**
+ * Probador de HASH
+ * @param  {Object}    		Objecto de request
+ * @param  {Object}    		Objecto de responce
+ * @param  {Function}    	Funcion para seguir el siguente paso
+ * @param  {String}    		String para probar
+ * @return {Void}
+ */
 export function hash (req, res, next, valor ){
 	
 	next(valor === hexa ? null : new Error('Is not the version') );
 }
-
+/**
+ * Probador de File
+ * @param  {Object}    		Objecto de request
+ * @param  {Object}    		Objecto de responce
+ * @param  {Function}    	Funcion para seguir el siguente paso
+ * @param  {String}    		String para probar
+ * @return {Void}
+ */
 export function file (req, res, next, valor, name ){
 	req.params[ name ] = ( new Buffer(req.params[ name ], 'hex' ) ).toString('utf8');
 	next();
 }
 
+/**
+ * Colocando cache
+ * @param  {Object}    		Objecto de request
+ * @param  {Object}    		Objecto de responce
+ * @param  {Function}    	Funcion para seguir el siguente paso
+ * @return {Void}
+ */
 export function cache (req, res, next) {
 	var cc = '';
 	if(time){
@@ -127,6 +163,13 @@ export function cache (req, res, next) {
 	next();
 }
 
+/**
+ * Probador de Componete
+ * @param  {Object}    		Objecto de request
+ * @param  {Object}    		Objecto de responce
+ * @param  {Function}    	Funcion para seguir el siguente paso
+ * @return {Void}
+ */
 export function component (req, res, next){
 	if ( _.isEmpty(req.params[0]) || !jss.test(req.params[0]) || not.test(req.params[0]) || not.test(req.params.file) ){
 		return next(new Error('Not Found'));
@@ -151,6 +194,13 @@ export function component (req, res, next){
 	});
 }
 
+/**
+ * Generador CSS
+ * @param  {Object}    		Objecto de request
+ * @param  {Object}    		Objecto de responce
+ * @param  {Function}    	Funcion para seguir el siguente paso
+ * @return {Void}
+ */
 export function CSS (req, res, next){
 	if ( not.test(req.params.file) ){
 		return next(new Error('Not Found'));
@@ -183,6 +233,13 @@ export function CSS (req, res, next){
 	});
 }
 
+/**
+ * Envia la imagen a su respectivo tamaña IMG
+ * @param  {Object}    		Objecto de request
+ * @param  {Object}    		Objecto de responce
+ * @param  {Function}    	Funcion para seguir el siguente paso
+ * @return {Void}
+ */
 export function IMG (req, res, next){
 	if ( /\.\./.test(req.params.file) ){
 		return next(new Error('Not Found'));
@@ -201,6 +258,13 @@ export function IMG (req, res, next){
 	});
 }
 
+/**
+ * Contruye el JS
+ * @param  {Object}    		Objecto de request
+ * @param  {Object}    		Objecto de responce
+ * @param  {Function}    	Funcion para seguir el siguente paso
+ * @return {Void}
+ */
 export function JS (req, res, next) {
 	if ( /\.\./.test(req.params.file) ){
 		return next(new Error('Not Found'));
@@ -233,6 +297,13 @@ export function JS (req, res, next) {
 	});
 }
 
+/**
+ * Envia archivos SEND
+ * @param  {Object}    		Objecto de request
+ * @param  {Object}    		Objecto de responce
+ * @param  {Function}    	Funcion para seguir el siguente paso
+ * @return {Void}
+ */
 export function send (file, req, res, next) {
 	if( file instanceof Error || !_.isString(file)){
 		return next( file instanceof Error ? file : new Error(file.toString().replace(/error(\s)?:/i, '') ) );
@@ -252,6 +323,13 @@ export function send (file, req, res, next) {
 	});
 }
 
+/**
+ * Render de HTML
+ * @param  {Object}    		Objecto de request
+ * @param  {Object}    		Objecto de responce
+ * @param  {Function}    	Funcion para seguir el siguente paso
+ * @return {Void}
+ */
 export function html (req, res) {
 	res.render(req.params.file);
 }

@@ -3,6 +3,9 @@ import done from './done';
 import pvd from './pvd';
 import people from './people';
 
+/**
+ * @return {Object}      Apiccion de express configurada es una API
+ */
 export default function () {
 	var app = express();
 

@@ -4,6 +4,9 @@ import api from './api';
 import master from './master';
 import bodyParser from 'body-parser';
 
+/**
+ * @return {Object}      Apiccion de express configurada
+ */
 export default function () {
 	var app = express();
 	app.use(bodyParser.urlencoded({ extended: true }));

@@ -36,6 +36,11 @@ schema.virtual('methodExec').get(function () {
 });
 
 schema.method({
+	/**
+	 * @param  {Object}		Elemeto para configurar el botn
+	 * @param  {Function}	Callback
+	 * @return {Void}
+	 */
 	createPayment (data, cb) {
 		if(!this.methodExec){
 			return cb(new Error('Not exist method'));
@@ -52,6 +57,11 @@ schema.method({
 			cb(err, data);
 		});
 	},
+	/**
+	 * @param  {Object}		Query de la URL
+	 * @param  {Function}	Callback
+	 * @return {Void}
+	 */
 	confrimPayment (query, cb) {
 		if(!this.methodExec){
 			return cb(new Error('Not exist method'));

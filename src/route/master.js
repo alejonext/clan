@@ -2,6 +2,10 @@ import express from 'express';
 import path from 'path';
 import {cache} from './cdn';
 
+
+/**
+ * @return {Object}      Apiccion de express configurada para que solo envie un HTML
+ */
 export default function () {
 	var app = express(); 
 	app.locals.cache = cache;

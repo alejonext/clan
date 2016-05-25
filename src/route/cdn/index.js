@@ -11,7 +11,6 @@ const MES = /http(s)?\:/i;
  * @param  {Boolean} isLib Si pertenece a uan libreria
  * @return {String}        URL para hacer la peticion
  */
-
 export function cache ( pat, isLib){
 	let SSL_CDN = GLOBAL.CONFIG.server.ssl ? 's' : '';
 	let cdns = url.parse( GLOBAL.CONFIG.server.app.cdn );
@@ -40,6 +39,9 @@ export function cache ( pat, isLib){
 	}
 }
 
+/**
+ * @return {Object}      Apiccion de express configurada para emitir archivos estaticos
+ */
 export default function () {
 	var app = express();
 

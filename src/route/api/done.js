@@ -1,5 +1,8 @@
 import {Router} from 'express';
 
+/**
+ * @return {Object}      Router para generar donaciones
+ */
 export default function () {
 	var router = Router();
 	

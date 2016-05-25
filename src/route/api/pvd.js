@@ -1,4 +1,8 @@
 import express from 'express';
+
+/**
+ * @return {Object}      Apiccion de express configurada PVDs
+ */
 export default function () {
 	var app = express();
 	var model = GLOBAL.db.model('pvd');
