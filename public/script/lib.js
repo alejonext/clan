@@ -26,7 +26,6 @@ import landing from './controller/landing';
 import height from './directive/height';
 import bar from './directive/bar';
 
-console.log(app);
 // Run
 angular
 	.module(process.env.hash, [
