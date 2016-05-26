@@ -1,10 +1,9 @@
-export const name = 'api';
-export default function f (http) {
+export default function api (http) {
 	return http(process.env.host + process.env.api + '/:name', null, {
 		create : {
 			method : 'POST'	
 		}
 	});
 }
-
-f.$inject = ['$resource'];
+api.n = 'api';
+api.$inject = ['$resource'];

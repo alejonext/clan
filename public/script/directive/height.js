@@ -1,5 +1,4 @@
-export const name = 'ngHeight';
-export default function f (doc, rot) {
+export default function ngHeight (doc, rot) {
 	
 	const MAX = 500;
 	const VEL = 1;
@@ -27,5 +26,5 @@ export default function f (doc, rot) {
 		}
 	}
 }
-
-f.$inject = [ '$document', '$rootScope'];
+ngHeight.n = 'ngHeight';
+ngHeight.$inject = [ '$document', '$rootScope'];

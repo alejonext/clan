@@ -1,12 +1,13 @@
 const VEL = 5;
-export const name = 'app';
-export default class f {
+export default class app {
+	static n = 'app';
 	static $inject = ['$document', '$timeout'];
+	
 	num = 0;
 	back = [];
 	image = ';'
 	
-	constructor(doc, interval) {
+	constructor (doc, interval) {
 		this.out = interval;
 
 		var elem = doc.find('meta');
@@ -20,7 +21,7 @@ export default class f {
 		this.isClick(this.random(this.back.length - 1));
 	}
 
-	isClick(num) {
+	isClick (num) {
 		if(this.ins){
 			this.out.cancel(this.ins);
 			this.ins = null;

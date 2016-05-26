@@ -1,10 +1,8 @@
-export const name = 'bar';
-
 /**
  * <bar color="blue" caption="Is my progress.." progress="number" total="max" />
  */
 
-export default function f () {
+export default function bar () {
 	const template =
 `<div class="ng-progress-bar">
 	<span class="caption" ng-transclude></span>
@@ -31,4 +29,5 @@ export default function f () {
 		template
 	};
 }
-f.$inject = [];
+bar.n = 'bar';
+bar.$inject = [];

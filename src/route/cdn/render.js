@@ -77,6 +77,7 @@ function renderJS (raw, js, cb) {
 		b.transform(envify(_.extend({
 			version : process.env.npm_package_version,
 			hash : ( new Buffer(process.env.npm_package_version, 'utf8' ) ).toString('hex'),
+			where : GLOBAL.CONFIG.render.compress.script ? 'n' : 'name',
 		}, GLOBAL.CONFIG.server.key, GLOBAL.CONFIG.server.app, GLOBAL.CONFIG.render)));
 		b.require(raw, {
 			entry: true,

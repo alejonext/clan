@@ -1,6 +1,7 @@
-export const name = 'land';
-export default class f {
+export default class land {
 	static $inject = ['$rootScope', 'api', '$routeParams'];
+	static n = 'land';
+	
 	name = '';
 	email = '';
 	movil = '';

@@ -28,5 +28,4 @@ export default function f (router, location) {
 		});
 }
 
-
 f.$inject = ['$routeProvider', '$locationProvider'];
