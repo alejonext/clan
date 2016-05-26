@@ -10,6 +10,7 @@ $orange                     : #FF8C00 !default;
 $red                        : #c91111 !default;
 $green                      : #4a9b17 !default;
 $blue                       : #288CE1 !default;
+$blue-sec                   : #005b83 !default;
 $yellow                     : #ffd500 !default;
 
 $warning-bg                 : $orange !default;
@@ -39,7 +40,7 @@ $grey-10                    : lighten($black, 90%) !default;
 $grey-5                     : lighten($black, 95%) !default;
 
 // HEADINGS
-$headings-color             : $white !default;
+$headings-color             : $black !default;
 
 // LINKS
 $link-color                 : $orange !default;

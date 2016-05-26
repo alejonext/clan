@@ -29,6 +29,33 @@ html, body, .minum {
   animation: all linear 1s;
 }
 
+.toBisel {
+  flex-direction: row;
+  display: flex;
+  flex: 1 0 auto;
+  .all-50 {
+    flex: 1 1 0%;
+  }
+  .bisel {
+    flex: 0 0 50%;
+    border-style : solid;
+    border-width : 25px;
+    border-color : $white;
+    &.orange {
+      border-left-color : shade($orange,25%);
+      border-right-color : shade($orange,25%);
+      border-top-width: 0;
+    }
+    &.blue {
+      border-left-color : shade($blue,25%);
+      border-right-color :shade($blue,25%);
+      background-color: shade($blue,25%);
+    }
+  }  
+}
+
+
+
 .white {
 	background: $white;
 }
