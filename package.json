@@ -40,6 +40,11 @@
   },
   "homepage": "https://github.com/alejonext/clan#README",
   "dependencies": {
+    "babel-plugin-transform-class-properties" : "^6.9.0",
+    "babel-plugin-transform-member-expression-literals" : "^6.8.0",
+    "babel-plugin-transform-export-extensions" : "^6.8.0",
+    "babel-plugin-transform-merge-sibling-variables" : "^6.8.0",
+    "babel-plugin-transform-node-env-inline": "^6.8.0",
     "angular": "^1.5.5",
     "angular-animate": "^1.5.5",
     "angular-messages": "^1.5.5",
