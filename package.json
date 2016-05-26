@@ -19,7 +19,6 @@
       "transform-member-expression-literals",
       "transform-export-extensions",
       "transform-merge-sibling-variables",
-      "transform-object-assign",
       "transform-node-env-inline"
     ]
   },
