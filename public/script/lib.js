@@ -1,4 +1,3 @@
-
 import angular from 'angular';
 import 'angular-touch';
 import 'angular-sanitize';
