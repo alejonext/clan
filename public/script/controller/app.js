@@ -6,7 +6,7 @@ export default class f {
 	}
 	
 	constructor(doc, interval) {
-		this.num = 1;
+		this.num = 0;
 		this.back = [];
 		this.image = '';
 		this.out = interval;
@@ -19,7 +19,7 @@ export default class f {
 			}
 		}
 
-		this.isClick(1);
+		this.isClick(this.random(this.back.length - 1));
 	}
 
 	isClick(num) {
@@ -32,5 +32,9 @@ export default class f {
 		var item = this.back[ select * Math.sign(select) ];
 		this.image =  item;
 		this.ins = this.out( () => this.isClick(1), VEL * 1000);
+	}
+
+	random(max){
+		return Math.floor( Math.random() * max );
 	}
 }
