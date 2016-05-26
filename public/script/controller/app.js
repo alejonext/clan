@@ -14,7 +14,6 @@ export default class app {
 
 		for (var i = elem.length - 1; i >= 0; i--) {
 			let attr = elem[i].attributes;
-			console.log(attr);
 			if( attr.name && attr.name.value && attr.name.value === 'carrusel' ){
 				this.back.push(attr.content.value);
 			}
