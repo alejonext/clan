@@ -9,8 +9,8 @@ import * as people from './people';
  * @param  {String} 	Direcion del MongoDB
  * @return {Object}		Objecto que se conetruye Mongo
  */
-export default function (url) {
-	mongo.connect(url);
+export default function (uris) {
+	mongo.connect(uris);
 	mongo.model(done.name, done.schema);
 	mongo.model(pvd.name, pvd.schema);
 	mongo.model(people.name, people.schema);

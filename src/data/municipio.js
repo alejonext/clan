@@ -11,7 +11,7 @@ export var schema = new Schema({
 	municipio    : { type : String, required : true, trim : true, index : true },
 	alcalde      : { type : String, required : true, unique : true, trim : true, index : true },
 	direccion    : { type : String, required : true, trim : true, index : true },
-	email        : [{ type: String, lowercase: true, minlength: 5, match : EMAIL_REG, trim: true }],
+	email        : [ { type: String, lowercase: true, minlength: 5, match : EMAIL_REG, trim: true } ],
 	web          : { type: String, lowercase: true, minlength: 5, match : URL_REG, trim: true },
 });
 

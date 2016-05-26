@@ -13,8 +13,10 @@ export default class app {
 		var elem = doc.find('meta');
 
 		for (var i = elem.length - 1; i >= 0; i--) {
-			if(elem[i].attributes.daturl){
-				this.back.push(elem[i].attributes.daturl.value);
+			let attr = elem[i].attributes;
+			console.log(attr);
+			if( attr.name && attr.name.value && attr.name.value === 'carrusel' ){
+				this.back.push(attr.content.value);
 			}
 		}
 

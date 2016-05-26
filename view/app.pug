@@ -1,28 +1,46 @@
 doctype html
 html( ng-app=render.hash )
-	head
+	head( prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# product: http://ogp.me/ns/product#" )
 		base( href="/")
+
 		meta(charset='utf-8')
 		meta(http-equiv='X-UA-Compatible', content='IE=edge')
-		meta( name="viewport" content="width=device-width, initial-scale=1" )
-		title( ng-bind-template="{{viewTitle}} {{viewTitle ? '- ' : '' }}Clan Digital" ) CLAN Digital
+
+		meta( name="viewport", content="width=device-width, initial-scale=1" )
 		link( href='https://fonts.googleapis.com/css?family=Poppins:400,600,500,300' rel='stylesheet' type='text/css')
 		link( rel="stylesheet", type="text/css", href=cache('ink.css') )
 		link( rel="stylesheet", type="text/css", href=cache('start.css') )
-		meta( name="carrusel", daturl=cache('carrusel1-960.jpg') )
-		meta( name="carrusel", daturl=cache('carrusel2-960.jpg') )
-		meta( name="carrusel", daturl=cache('carrusel3-960.jpg') )
-		meta( name="carrusel", daturl=cache('carrusel4-960.jpg') )
-		meta( name="carrusel", daturl=cache('carrusel5-960.jpg') )
-		meta( name="carrusel", daturl=cache('carrusel6-960.jpg') )
-		meta( name="carrusel", daturl=cache('carrusel7-960.jpg') )
-		meta( name="carrusel", daturl=cache('carrusel9-960.jpg') )
-		meta( name="carrusel", daturl=cache('carrusel10-960.jpg') )
-		meta( name="carrusel", daturl=cache('carrusel11-960.jpg') )
-		meta( name="carrusel", daturl=cache('carrusel12-960.jpg') )
-		meta( name="carrusel", daturl=cache('carrusel13-960.jpg') )
-		meta( name="carrusel", daturl=cache('carrusel14-960.jpg') )
-		script(type="text/javascript", src=cache('lib.js') )
+
+		title( ng-bind-template="{{viewTitle}} {{viewTitle ? '- ' : '' }}Clan Digital" ) CLAN Digital
+
+		//- OG
+		meta( property="og:description", content="Clan Digital" )
+		meta( property="og:locale", content="es" )
+		meta( property="og:title", content="Clan Digital" )
+		meta( property="og:type", content="article")
+		meta( property="og:url", content="http://clandigital.opensie.org/" )
+
+		//- FB
+		meta( property="fb:app_id", content="article")
+	
+		//- Twitter
+		meta( name="twitter:card", content="summary_large_image" )
+		meta( name="twitter:site", content="@clandigital")
+
+		//- Carrusel
+		meta( name="carrusel", content=cache('carrusel1-960.jpg') )
+		meta( name="carrusel", content=cache('carrusel2-960.jpg') )
+		meta( name="carrusel", content=cache('carrusel4-960.jpg'), property="og:image",)
+		meta( name="carrusel", content=cache('carrusel3-960.jpg') )
+		meta( name="carrusel", content=cache('carrusel5-960.jpg') )
+		meta( name="carrusel", content=cache('carrusel6-960.jpg') )
+		meta( name="carrusel", content=cache('carrusel7-960.jpg') )
+		meta( name="carrusel", content=cache('carrusel9-960.jpg') )
+		meta( name="carrusel", content=cache('carrusel10-960.jpg') )
+		meta( name="carrusel", content=cache('carrusel11-960.jpg') )
+		meta( name="carrusel", content=cache('carrusel12-960.jpg') )
+		meta( name="carrusel", content=cache('carrusel13-960.jpg') )
+		
 	body.all-100( ng-controller="app as a" )
 		.all-100.blur.minum( ng-height="a.image" )
 			nav.ng-navigation.ng-grid.mosxh.bar
@@ -59,3 +77,4 @@ html( ng-app=render.hash )
 				ul.orange.breadcrumbs.double-bottom-padding
 					li: a.small Bogota
 					li: a.small Colombia
+		script(type="text/javascript", src=cache('lib.js') )
