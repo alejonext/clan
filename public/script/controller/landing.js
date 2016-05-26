@@ -1,8 +1,11 @@
 export const name = 'land';
 export default class f {
-	static get $inject(){
-		return ['$rootScope', 'api', '$routeParams'];
-	}
+	static $inject = ['$rootScope', 'api', '$routeParams'];
+	name = '';
+	email = '';
+	movil = '';
+	municipio = '';
+	class = '';
 	
 	constructor( doc, api, params) {
 		doc.maxBar = true;

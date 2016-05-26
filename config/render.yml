@@ -1,9 +1,9 @@
 default:
   host: http://localhost:2000
   compress:
-    style: true
-    script: true
-    html: true
+    style: false
+    script: false
+    html: false
 
 production:
   host: http://localhost:2000

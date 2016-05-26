@@ -1,8 +1,7 @@
 export const name = 'home';
 export default class f {
-	static get $inject(){
-		return [ '$scope', 'ngDialog', '$rootScope'];
-	}
+	static $inject = [ '$scope', 'ngDialog', '$rootScope'];
+	
 	constructor(scope, dialog, doc) {
 		doc.maxBar = false;
 		dialog.open({

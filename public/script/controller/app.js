@@ -1,14 +1,12 @@
 const VEL = 5;
 export const name = 'app';
 export default class f {
-	static get $inject(){
-		return ['$document', '$timeout'];
-	}
+	static $inject = ['$document', '$timeout'];
+	num = 0;
+	back = [];
+	image = ';'
 	
 	constructor(doc, interval) {
-		this.num = 0;
-		this.back = [];
-		this.image = '';
 		this.out = interval;
 
 		var elem = doc.find('meta');
