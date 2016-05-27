@@ -9,6 +9,7 @@ html( ng-app=render.hash )
 		meta( name="viewport", content="width=device-width, initial-scale=1" )
 		link( href='https://fonts.googleapis.com/css?family=Poppins:400,600,500,300' rel='stylesheet' type='text/css')
 		link( rel="stylesheet", type="text/css", href=cache('ink.css') )
+		link( rel="stylesheet", type="text/css", href=cache('flex.css') )
 		link( rel="stylesheet", type="text/css", href=cache('start.css') )
 
 		title( ng-bind-template="{{viewTitle}} {{viewTitle ? '- ' : '' }}Clan Digital" ) CLAN Digital
@@ -56,7 +57,7 @@ html( ng-app=render.hash )
 						ul.submenu
 							li: a.fa.fa-facebook-official
 							li: a.fa.fa-twitter
-			nav.ng-navigation.ng-grid.mosxh
+			nav.ng-navigation.ng-grid.mosxh.show-xlarge.show-large.show-medium.show-small.hide-all
 				ul.pagination.chevron
 					li.previous: a.put( ng-click="a.isClick(-1)" ): span Atras
 					li.next: a.put( ng-click="a.isClick(1)" ): span Siguiente

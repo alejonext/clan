@@ -12,7 +12,7 @@ export default class app {
 
 		var elem = doc.find('meta');
 
-		for (var i = elem.length - 1; i >= 0; i--) {
+		for (let i = elem.length - 1; i >= 0; i--) {
 			let attr = elem[i].attributes;
 			if( attr.name && attr.name.value && attr.name.value === 'carrusel' ){
 				this.back.push(attr.content.value);
@@ -34,7 +34,8 @@ export default class app {
 		this.ins = this.out( () => this.isClick(1), VEL * 1000);
 	}
 
-	random(max){
+	random (max){
 		return Math.floor( Math.random() * max );
 	}
+
 }
