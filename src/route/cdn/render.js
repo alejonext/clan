@@ -267,9 +267,6 @@ export function IMG (req, res, next){
  * @return {Void}
  */
 export function JS (req, res, next) {
-	if ( /\.\./.test(req.params.file) ){
-		return next(new Error('Not Found'));
-	}
 	var InPath = path.join( __dirname, '..', '..' , '..', 'public', 'script', req.params.file + '.js' );
 	var OutPath = path.join(GLOBAL.CONFIG.server.temp, req.params.file + '.js' );
 
