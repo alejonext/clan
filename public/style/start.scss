@@ -30,6 +30,12 @@ html, body, .minum {
   animation: all linear 1s;
 }
 
+.justi {
+  p {
+    text-align: justify;
+  }
+}
+
 .toBisel {
   flex-direction: row;
   display: flex;
@@ -41,8 +47,16 @@ html, body, .minum {
     border-style : solid;
     border-width : 2em;
     border-color : $white;
+
+    h1, h2, h3, h4, h5, h6 {
+      color : $white;
+    }
+
     &.all-50 {
       flex: 0 0 50%;
+    }
+    &.all-15 {
+      flex: 0 0 15%;
     }
     &.orange {
       border-left-color : shade($orange,25%);

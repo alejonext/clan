@@ -1,4 +1,55 @@
 .double-vertical-padding.all-100
+	.ng-grid
+		h1
+		h2
+
+	ul.unstyled.no-margin
+		li.all-100.blue.double-vertical-space: .ng-grid: .column-group.toBisel
+			.all-15.bisel.blue.align-center
+				h3.no-margin.half-vertical-padding 1
+					p.small.no-margin paso
+			.all-85.half-padding
+				.control-group
+					label( for="values" ) Nombre
+					.control.required: input.half-padding#values( placeholder="30", type="number", ng-model="d.value", ng-required, min=15 )
+		li.all-100.blue.double-vertical-space: .ng-grid: .column-group.toBisel
+			.all-15.bisel.blue.align-center
+				h3.no-margin.half-vertical-padding 2
+					p.small.no-margin paso
+			.all-85.half-padding
+				.control-group
+					label( for="values" ) Nombre
+					.control.required.button-group
+						label.ng-button.all-33( class="{{d.wh === 'liena' ? 'orange' : 'blue' }}" for="liena" ) En linea
+						label.ng-button.all-33( class="{{d.wh === 'manual' ? 'orange' : 'blue' }}" for="manual" ) Consignacion
+						input.ng-hide.all-hide#liena( type="radio", name="wh", value="liena", ng-model="d.wh", ng-required )
+						input.ng-hide.all-hide#manual( type="radio", name="wh", value="manual", ng-model="d.wh", ng-required )
+
+		li.all-100.blue.double-vertical-space: .ng-grid: .column-group.toBisel
+			.all-15.bisel.blue.align-center
+				h3.no-margin.half-vertical-padding 3
+					p.small.no-margin paso
+			.all-85.half-padding( ng-if="d.wh === 'manual'" )
+				.control-group
+					label.ng-hide.all-hide( for="values" ) Nombre
+					.control.required: input.half-padding#values( placeholder="30", type="number", ng-model="d.value", ng-required, min=15 )
+
+			.all-85.half-padding( ng-if="d.wh === 'liena'" )
+				.control-group
+					label.ng-hide.all-hide( for="values" ) Nombre
+					.control.required: input.half-padding#values( placeholder="30", type="number", ng-model="d.value", ng-required, min=15 )
+
+	ul.unstyled.no-margin( ng-if="d.wh === 'liena'" )
+		li.all-100.blue.double-vertical-space: .ng-grid: .column-group.toBisel
+			.all-15.bisel.blue.align-center
+				h3.no-margin.half-vertical-padding 4
+					p.small.no-margin paso
+			.all-85.half-padding
+				.control-group
+					label.ng-hide.all-hide( for="values" ) Nombre
+					.control.required: input.half-padding#values( placeholder="30", type="number", ng-model="d.value", ng-required, min=15 )
+
+
 	.column-group.gutters
 		.all-50
 			h1(  ) joder
