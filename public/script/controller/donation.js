@@ -8,4 +8,8 @@ export default class done {
 		scope.$watch(() => this.isType, newval => angular.isDefined(newval) ? scroll('step3') : null )
 	}
 
+	pay(){
+		console.log(this);
+	}
+
 }

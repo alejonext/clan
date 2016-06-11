@@ -1,19 +1,20 @@
-
 import angular from 'angular';
-import 'angular-touch';
-import 'angular-sanitize';
-import 'angular-route';
-import 'angular-resource';
-import 'angular-messages';
-import 'angular-animate';
-import 'angularjs-viewhead';
+
 import 'ngsticky';
-import 'ng-dialog';
+import 'angularjs-viewhead';
 import 'moment';
-import 'angular-moment';
-import 'angulartics';
-import 'angulartics-google-analytics';
-import 'angulartics-google-tag-manager';
+
+import touch from 'angular-touch';
+import sanitize from 'angular-sanitize';
+import route from 'angular-route';
+import resource from 'angular-resource';
+import messages from 'angular-messages';
+import animate from 'angular-animate';
+import dialog from 'ng-dialog';
+import ngMoment from 'angular-moment';
+import angulartics from 'angulartics';
+import analytics from 'angulartics-google-analytics';
+import tagManager from 'angulartics-google-tag-manager';
 
 // Thinks
 import config from './service/config';
@@ -29,21 +30,20 @@ import bar from './directive/bar';
 // Run
 angular
 	.module(process.env.hash, [
-		'ng',
-		'ngRoute',
-		'viewhead',
-		'ngAnimate',
-		'ngMessages',
-		'ngResource',
-		'ngRoute',
-		'ngSanitize',
-		'ngTouch',
-		'ngDialog',
+		route,
+		touch,
+		sanitize,
+		resource,
+		messages,
+		animate,
+		dialog,
+		ngMoment,
+		angulartics,
+		analytics,
+		tagManager,
 		'sticky',
-		'angularMoment',
-		'angulartics',
-		'angulartics.google.analytics',
-		'angulartics.google.tagmanager'
+		'viewhead',
+		'ng'
 	])
 	.service(api[ process.env.where ], api)
 	.controller(donation[ process.env.where ], donation)
