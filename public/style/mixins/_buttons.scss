@@ -29,7 +29,7 @@
 @mixin button-group($button-background-color) {
 
     &:first-child {
-        border-left: shade($button-background-color, 15%);
+        border-left: 1px solid shade($button-background-color, 15%) ;
     }
 
     &[disabled]{
