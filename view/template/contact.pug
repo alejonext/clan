@@ -1,14 +1,16 @@
-.double-vertical-padding.all-100
-	p( viewTitle  ) ¡Cuentanos!
-	.control-group
-		label.ng-hide.all-hide( for="name" ) Nombre
-		.control.required: input.half-padding#name( placeholder="Nombres y Apellidos *", type="text", ng-model="c.name", ng-required )
-	.control-group
+.double-vertical-padding.all-60.push-center.from-ng: .ng-grid
+	viewTitle.ng-hide.all-hide ¡Cuentanos!
+	.column-group.gutters
+		.control-group.all-50
+			label.ng-hide.all-hide( for="name" ) Nombre
+			.control.required: input.half-padding.all-100#name( placeholder="Nombres y Apellidos *", type="text", ng-model="c.name", ng-required )
+		.control-group.all-50
+			label.ng-hide.all-hide(for="email") Email
+			.control.required: input.half-padding.all-100#email( placeholder="E-Mail *", type="email", ng-model="c.email", ng-required  )
+	.control-group.all-100
 		label.ng-hide.all-hide(for="email") Email
-		.control.required: input.half-padding#email( placeholder="E-Mail *", type="email", ng-model="c.email", ng-required  )
-	.control-group
-		label.ng-hide.all-hide( for="tel" ) Movil
-		.control.required: input.half-padding#tel( placeholder="Celular *", type="text", ng-model="c.movil", ng-required  )
-	p.tip * Requerido
+		.control.required: textarea.half-padding.all-100#email( placeholder="¡Cuentanos!", ng-model="c.text", ng-required )
+
+
 	.control-group.top-space
 		button.ng-button.orange.all-100.half-padding( ng-click="l.sender()" ) ¡Inscribete Ahora!
