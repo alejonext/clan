@@ -10,9 +10,16 @@
     $base-font-size:    nth($breakpoint,6);
     $no-media-query:    nth($breakpoint,7);
 
+    $number : 3;
+
     @if $minimum-width and not $maximum-width {
       /* for #{$class-name} screens */
       @media #{$media} and (min-width: $minimum-width) {
+        li {
+          &.sub-screen{
+            margin-bottom: $gutter-width * $number ;
+          }
+        }
         
       }
     }
@@ -22,6 +29,11 @@
       @media #{$media} and (min-width: $minimum-width) and (max-width: $maximum-width) {
         
         /* your css for #{$class-name} screens goes here ... */
+        li {
+          &.sub-screen{
+            margin-bottom: $gutter-width * $number ;
+          }
+        }
 
       }
     }
@@ -31,6 +43,11 @@
       @media #{$media} and (max-width: $maximum-width) {
         
         /* your css for #{$class-name} screens goes here ... */
+        li {
+            &.sub-screen{
+              margin-bottom: $gutter-width * $number ;
+            }
+          }
 
       }
     }

@@ -5,17 +5,17 @@
 
 	ul.unstyled.no-margin
 		li.all-100.blue.sub-screen: .ng-grid: .column-group.toBisel
-			.all-15.bisel.blue.align-center
-				h3.no-margin.quarter-vertical-padding 1
+			.all-15.bisel.blue.align-center.hide-all.show-medium.show-large.show-xlarge
+				h3.no-margin.quarter-vertical-padding.all-100 1
 					p.small.no-margin paso
-			.all-85.half-padding.control-group
+			.all-85.half-padding.medium-80.control-group.small-100.tiny-100
 				label( for="values" ) Escribe el monto a partir de $15 USD
 				.control.required: input.half-padding#values( placeholder="30", type="number", ng-model="d.value", ng-required, min=15 )
 		li.all-100.blue.sub-screen#step2: .ng-grid: .column-group.toBisel
-			.all-15.bisel.blue.align-center
-				h3.no-margin.quarter-vertical-padding 2
+			.all-15.bisel.blue.align-center.hide-all.show-medium.show-large.show-xlarge
+				h3.no-margin.quarter-vertical-padding.all-100 2
 					p.small.no-margin paso
-			.all-85.half-padding.control-group
+			.all-85.half-padding.medium-80.control-group.small-100.tiny-100
 				label ¿Qué forma de pago deseas?
 				.control.required.ng-hide.all-hide
 					input#liena( type="radio", name="isbay", value="liena", ng-model="d.isbay", ng-required )
@@ -23,17 +23,16 @@
 				.button-group
 					label.ng-button.all-50( class="{{d.isbay === 'liena' ? 'orange' : 'blue' }}" for="liena" ) En linea/Tarjeta
 					label.ng-button.all-50( class="{{d.isbay === 'manual' ? 'orange' : 'blue' }}" for="manual" ) Consignacion
-				
 
 		li.all-100.blue#step3( ng-if="d.isbay" ): .ng-grid: .column-group.toBisel
-			.all-15.bisel.blue.align-center
-				h3.no-margin.quarter-vertical-padding 3
+			.all-15.bisel.blue.align-center.hide-all.show-medium.show-large.show-xlarge
+				h3.no-margin.quarter-vertical-padding.all-100 3
 					p.small.no-margin paso
-			.all-85.half-padding.control-group( ng-if="d.isbay === 'manual'" )
+			.all-85.half-padding.medium-80.control-group.small-100.tiny-100( ng-if="d.isbay === 'manual'" )
 				h4 bar
 				p foo
 
-			.all-85.half-padding.control-group( ng-if="d.isbay === 'liena'" )
+			.all-85.half-padding.medium-80.control-group.small-100.tiny-100( ng-if="d.isbay === 'liena'" )
 				label Ingresa los datos del medio de pago
 				.control.required.ng-hide.all-hide
 					input#paypal( type="radio", name="isType", value="paypal", ng-model="d.isType", ng-required )
@@ -43,7 +42,7 @@
 					label.ng-button.all-50( class="{{d.isType === 'card' ? 'orange' : 'blue' }}" for="card" ) Tarjeta
 
 
-		li.all-60.push-center.sub-screen( ng-if="d.isbay === 'liena' && d.isType === 'card'" ): .ng-grid
+		li.all-60.small-100.tiny-100.medium-90.push-center.sub-screen( ng-if="d.isbay === 'liena' && d.isType === 'card'" ): .ng-grid
 			h4 Tarjeta de crédito
 			.control-group.half-bottom-space
 				label( for="num" ) Número de tarjeta
@@ -62,13 +61,13 @@
 
 	ul.unstyled.no-margin#step4( ng-if="d.isbay === 'liena' && d.isType === 'card'" )
 		li.all-100.blue: .ng-grid: .column-group.toBisel
-			.all-15.bisel.blue.align-center
-				h3.no-margin.quarter-vertical-padding 4
+			.all-15.bisel.blue.align-center.hide-all.show-medium.show-large.show-xlarge
+				h3.no-margin.quarter-vertical-padding.all-100 4
 					p.small.no-margin paso
-			.all-85.half-padding
+			.all-85.half-padding.medium-80
 				h2.white.half-vertical-padding.no-margin Personaliza el Certificado
 
-		li.all-60.push-center.vertical-space: .ng-grid
+		li.all-60.small-100.tiny-100.medium-90.push-center.vertical-space: .ng-grid
 			.control-group
 				label.ng-hide.all-hide( for="name" ) Nombre o Razón Social
 				.control.required: input.half-padding#name( placeholder="Nombres y Apellidos", type="text", ng-model="d.name" )
