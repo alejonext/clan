@@ -15,6 +15,7 @@ export var schema = new Schema({
 	total    : { type : Number, min : 0, required : true },
 	moneda   : { type : String, required : true, trim : true, index : true, enum: gateway.currency, uppercase: true },
 	status   : { type : Number, Min: 0, Max: 2, default : 0 },
+	email    : { type : String, trim : true },
 	// ToDo Montar sistema de donacion
 	metodo   : { type : String, required : true, trim : true, index : true, enum: gateway.list }
 });
@@ -24,11 +25,15 @@ schema.virtual('redirect').get(function () {
 });
 
 schema.virtual('cancel_url').get(function () {
-	return GLOBAL.CONFIG.servers.app.api + name + '/cancel/' + this._id.toString();
+	return `${GLOBAL.CONFIG.servers.app.api}/${name}/${GLOBAL.CONFIG.server.confirm}/${this._id.toString()}/confirm`;
 });
 
 schema.virtual('success_url').get(function () {
-	return GLOBAL.CONFIG.servers.app.api + name + '/' + this._id.toString();
+	return `${GLOBAL.CONFIG.servers.app.api}/${name}/${GLOBAL.CONFIG.server.confirm}/${this._id.toString()}/confirm`;
+});
+
+schema.virtual('certificate').get(function () {
+	return `${name}/certificate/${this._id.toString()}`;
 });
 
 schema.virtual('methodExec').get(function () {
@@ -36,11 +41,12 @@ schema.virtual('methodExec').get(function () {
 });
 
 schema.method({
-	/**
-	 * @param  {Object}		Elemeto para configurar el botn
-	 * @param  {Function}	Callback
-	 * @return {Void}
-	 */
+	
+/**
+ * @param  {Object}		Elemeto para configurar el botn
+ * @param  {Function}	Callback
+ * @return {Void}
+ */
 	createPayment (data, cb) {
 		if(!this.methodExec){
 			return cb(new Error('Not exist method'));
@@ -57,11 +63,12 @@ schema.method({
 			cb(err, data);
 		});
 	},
-	/**
-	 * @param  {Object}		Query de la URL
-	 * @param  {Function}	Callback
-	 * @return {Void}
-	 */
+
+/**
+ * @param  {Object}		Query de la URL
+ * @param  {Function}	Callback
+ * @return {Void}
+ */
 	confrimPayment (query, cb) {
 		if(!this.methodExec){
 			return cb(new Error('Not exist method'));

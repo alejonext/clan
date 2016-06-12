@@ -5,54 +5,56 @@ import {Router} from 'express';
  */
 export default function () {
 	var router = Router();
-	
-	router.route('/').post((req, res) => {
-		let newDonation = new GLOBAL.db.model('user')(req.body);
+
+	router
+		.route('/')
+		.post((req, res) => {
+		let newDonation = new GLOBAL.db.model('donacion')(req.body.pay);
 		newDonation.status = 1;
-		newDonation.save((error, data) => {
-			res.json({
-				error,
-				data
-			});
-		});
-	}).get( (req, res) => {
-		GLOBAL.db.model('user').find(req.query, (error, data) => {
-			res.json({
-				error,
-				data
-			});
+		newDonation.createPayment(req.body.card, error => {
+			newDonation.save((error, data) => res.json({ error, data }));
 		});
 	});
 
-	router.get('/:id', (req, res) => {
-		GLOBAL.db.model('user').find({
-			para : req.param.id // PVD
-		}, (error, data) => {
-			res.json({
-				error,
-				data
-			});
-		});
+	router
+		.route('/certificate/:id')
+		.get((req, res) => {
+		GLOBAL.db
+			.model('donacion')
+			.find({ para : req.param.id }, (error, data) => next({ error, data }))
 	});
 
-	router.delete(`/${GLOBAL.CONFIG.server.confirm}/:id`, (req, res) => {
-		GLOBAL.db.model('user').findByIdAndRemove(req.param.id, (error, data) => {
-			res.json({
-				error,
-				data
-			});
-		});
-	});
+	router
+		.route('/:id')
+		.all((req, res, next) => GLOBAL.db
+			.model('donacion')
+			.find({ para : req.param.id }, (error, data) => next({ error, data })))
+		.get((data, req, res) => res.json(data))
+		.put((data, req, res) => data.data.confirm(req.body, (error, rs) => res.json({ error, rs })));
 
-	// ToDo Hacer el metodo de confirmacion
-	router.all(`/${GLOBAL.CONFIG.server.confirm}/:id/confirm`, (req, res) => {
-		GLOBAL.db.model('user').findByIdAndUpdate(req.param.id, req.body, (error, data) => {
-			res.json({
-				error,
-				data
-			});
+
+	router
+		.route(`/${GLOBAL.CONFIG.server.confirm}/:id/:name(cancel|confirm)`)
+		.all((req, res, next) => GLOBAL.db
+			.model('donacion')
+			.find({ para : req.param.id }, (error, data) => next({ error, data })))
+		.get((data, req, res) => {
+			if(!data.data || data.error){
+				return res.json(data);
+			}
+
+			if(req.params.name === 'confirm'){
+				data.data.confrimPayment(req.query, error => {
+					if(error){
+						data.error = error; 	
+					}
+
+					res.json(data);
+				});
+			} else {
+				data.data.remove( error => res.redirect('/'));
+			}
 		});
-	});
 
 	return router;
 }
