@@ -58,9 +58,12 @@ schema.method({
 			if(err){
 				return cb(err);
 			}
-
 			this.uuid = data.uid;
-			cb(err, data);
+			this.save((err, doc) => {
+				let js = doc.toJSON();
+				js.payment = data;
+				cb(err, js);
+			});
 		});
 	},
 

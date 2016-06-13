@@ -47,7 +47,7 @@ export function get (params, callback) {
 			'currency': 'USD',
 			'total' : params.total
 		},
-		'description' : params.descrip
+		'description' : GLOBAL.CONFIG.server.description
 	});
 
 	paypal.payment.create( nowPay, (err, resp) => {

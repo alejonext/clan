@@ -10,7 +10,7 @@
 					p.small.no-margin paso
 			.all-85.half-padding.medium-80.control-group.small-100.tiny-100
 				label( for="values" ) Escribe el monto a partir de $15 USD
-				.control.required: input.half-padding#values( placeholder="30", type="number", ng-model="d.value", ng-required, min=15 )
+				.control.required: input.half-padding#values( placeholder="30", type="number", ng-model="d.pay.total", ng-required, min=15 )
 		li.all-100.blue.sub-screen#step2: .ng-grid: .column-group.toBisel
 			.all-15.bisel.blue.align-center.hide-all.show-medium.show-large.show-xlarge
 				h3.no-margin.quarter-vertical-padding.all-100 2
@@ -35,31 +35,31 @@
 			.all-85.half-padding.medium-80.control-group.small-100.tiny-100( ng-if="d.isbay === 'liena'" )
 				label Ingresa los datos del medio de pago
 				.control.required.ng-hide.all-hide
-					input#paypal( type="radio", name="isType", value="paypal", ng-model="d.isType", ng-required )
-					input#card( type="radio", name="isType", value="card", ng-model="d.isType", ng-required )
+					input#paypal( type="radio", name="pay.system", value="paypal", ng-model="d.pay.system", ng-required )
+					input#card( type="radio", name="pay.system", value="card", ng-model="d.pay.system", ng-required )
 				.button-group
-					label.ng-button.all-50( class="{{d.isType === 'paypal' ? 'orange' : 'blue' }}" for="paypal" ) Paypal
-					label.ng-button.all-50( class="{{d.isType === 'card' ? 'orange' : 'blue' }}" for="card" ) Tarjeta
+					label.ng-button.all-50( class="{{d.pay.system === 'paypal' ? 'orange' : 'blue' }}" for="paypal" ) Paypal
+					label.ng-button.all-50( class="{{d.pay.system === 'card' ? 'orange' : 'blue' }}" for="card" ) Tarjeta
 
 
-		li.all-60.small-100.tiny-100.medium-90.push-center.sub-screen( ng-if="d.isbay === 'liena' && d.isType === 'card'" ): .ng-grid
+		li.all-60.small-100.tiny-100.medium-90.push-center.sub-screen( ng-if="d.isbay === 'liena' && d.pay.system === 'card'" ): .ng-grid
 			h4 Tarjeta de crédito
 			.control-group.half-bottom-space
 				label( for="num" ) Número de tarjeta
-				.control.required: input.all-100.half-padding#num( placeholder="Numero", type="number", ng-model="d.card.num", ng-required )
+				.control.required: input.all-100.half-padding#num( placeholder="Numero", type="number", ng-model="d.card.number", ng-required )
 			.column-group.gutters
 				.all-50.control-group
 					label.all-100 Fecha de nacimiento
 					.column-group.gutters
 						.control.all-50.required
-							input.all-100.half-padding#mes( placeholder="6", type="number", ng-model="d.card.mes", ng-required, max=12, min=1 )
+							input.all-100.half-padding#mes( placeholder="6", type="number", ng-model="d.card.expire_month", ng-required, max=12, min=1 )
 						.control.all-50.required
-							input.all-100.half-padding#ano( placeholder="2017", type="number", ng-model="d.card.ano", ng-required, max=2050, min=2015 )
+							input.all-100.half-padding#ano( placeholder="2017", type="number", ng-model="d.card.expire_year", ng-required, max=2050, min=2015 )
 				.all-50.control-group
 					label( for="cvs" ) Codigo de seguridad
-					.control.required: input.all-100.half-padding#cvs( placeholder="111", type="number", ng-model="d.card.cvs", ng-required  )
+					.control.required: input.all-100.half-padding#cvs( placeholder="111", type="number", ng-model="d.card.cvv2", ng-required  )
 
-	ul.unstyled.no-margin#step4( ng-if="d.isbay === 'liena' && d.isType === 'card'" )
+	ul.unstyled.no-margin#step4( ng-if="d.isbay === 'liena' && d.pay.system === 'card'" )
 		li.all-100.blue: .ng-grid: .column-group.toBisel
 			.all-15.bisel.blue.align-center.hide-all.show-medium.show-large.show-xlarge
 				h3.no-margin.quarter-vertical-padding.all-100 4
@@ -70,18 +70,23 @@
 		li.all-60.small-100.tiny-100.medium-90.push-center.vertical-space: .ng-grid
 			.control-group
 				label.ng-hide.all-hide( for="name" ) Nombre o Razón Social
-				.control.required: input.half-padding#name( placeholder="Nombres y Apellidos", type="text", ng-model="d.name" )
+				.control.required: input.half-padding#name( placeholder="Nombres y Apellidos", type="text", ng-model="d.pay.more.name" )
 			.control-group
 				label.ng-hide.all-hide(for="email") Correo electrónico *
-				.control.required: input.half-padding#email( placeholder="E-Mail *", type="email", ng-model="d.email", ng-required  )
+				.control.required: input.half-padding#email( placeholder="E-Mail *", type="email", ng-model="d.pay.email", ng-required  )
 			.control-group
 				label.ng-hide.all-hide( for="nit" ) Documentos de Identidad (CC, NIT, RUC, DNI, CEX)
-				.control.required: input.half-padding#nit( placeholder="NIT", type="text", ng-model="d.nit" )
+				.control.required: input.half-padding#nit( placeholder="NIT", type="text", ng-model="d.pay.more.nit" )
 			p.tip Requerido *
 
-	.all-60.push-center.double-vertical-space( ng-if="d.isbay === 'liena' && d.isType" ): .ng-grid
-		a.all-100.ng-button.orange( ng-show="d.isType === 'paypal'", href="http://paypal.com/donar" )
+
+	.all-60.push-center.double-vertical-space( ng-if="d.isbay === 'liena' && d.pay.total" ): .ng-grid
+		.ng-alert.basic( ng-show="d.error" )
+			p {{d.error}}
+		button.ng-button.orange.all-100( ng-click="d.payNow()", ng-show="!d.send" )
 			h3.white.no-margin.half-padding Pagar!
-		button.all-100.ng-button.orange( ng-show="d.isType === 'card'" ng-click="d.pay()" )
-			h3.white.no-margin.half-padding Pagar!
+		h3.all-100.align-center( ng-show="d.send" )
+			i.fa.fa-circle-o-notch.fa-spin.fa-2x.half-bottom-space
+			p Procesando pago
+
 

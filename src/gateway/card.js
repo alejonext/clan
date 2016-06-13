@@ -19,16 +19,11 @@ const payment = {{
 			"credit_card_token": {}
 		}]
 	},
-	"transactions": [{
-		"amount": {
-			"currency": "USD"
-		},
-		"description": "This is the payment description."
-	}]
+	"transactions": []
 };
 
 
-export var name = 'paypal';
+export var name = 'card';
 export var tax = 0.054;
 export var more = 0.33;
 export var icon = 'cc-paypal';
@@ -57,7 +52,7 @@ export function get (params, callback) {
 				'currency': 'USD',
 				'total' : params.total
 			},
-			'description' : params.descrip
+			'description' : GLOBAL.CONFIG.server.description
 		});
 
 		paypal.payment.create( nowPay, (err, resp) => {

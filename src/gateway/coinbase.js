@@ -1,4 +1,5 @@
 import api from 'coinbase-service';
+
 const stats = {
 	'completed' : 1,
 	'pending' : 0,
@@ -40,7 +41,7 @@ export function get (params, callback) {
 
 	nowPay.price_string = params.price;
 	nowPay.name = params.title || 'Donacion'; // TODO MODIFICAR
-	nowPay.description = params.descrip;
+	nowPay.description = GLOBAL.CONFIG.server.description;
 
 	coinbase.button({
 		button : nowPay
