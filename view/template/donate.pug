@@ -29,8 +29,15 @@
 				h3.no-margin.quarter-vertical-padding.all-100 3
 					p.small.no-margin paso
 			.all-85.half-padding.medium-80.control-group.small-100.tiny-100( ng-if="d.isbay === 'manual'" )
-				h4 bar
-				p foo
+				dl.all-33.no-margin.small-100.tiny-100
+					dt.align-center Banco
+					dd.align-center Bancolombia - No: 52983364152
+				dl.all-33.no-margin.small-100.tiny-100
+					dt.align-center Titular
+					dd.align-center Open Source Academic Initiative
+				dl.all-33.no-margin.small-100.tiny-100
+					dt.align-center NIT
+					dd.align-center 900654987
 
 			.all-85.half-padding.medium-80.control-group.small-100.tiny-100( ng-if="d.isbay === 'liena'" )
 				label Ingresa los datos del medio de pago
@@ -49,7 +56,7 @@
 				.control.required: input.all-100.half-padding#num( placeholder="Numero", type="number", ng-model="d.card.number", ng-required )
 			.column-group.gutters
 				.all-50.control-group
-					label.all-100 Fecha de nacimiento
+					label.all-100 Fecha de vencimiento
 					.column-group.gutters
 						.control.all-50.required
 							input.all-100.half-padding#mes( placeholder="6", type="number", ng-model="d.card.expire_month", ng-required, max=12, min=1 )

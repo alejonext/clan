@@ -1,12 +1,12 @@
 default:
-  host: http://localhost:2000
+  host: http://10.0.1.220:2000
   compress:
     style: false
     script: false
     html: false
 
 production:
-  host: http://localhost:2000
+  host: http://10.0.1.220:2000
   maxPoint : 50000000
   compress:
     style: true

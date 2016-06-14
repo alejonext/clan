@@ -1,5 +1,5 @@
 export default class land {
-	static $inject = ['$rootScope', 'api', '$routeParams'];
+	static $inject = ['$rootScope', 'api', '$routeParams', '$scope', 'ngDialog'];
 	static n = 'land';
 	
 	name = '';
@@ -8,10 +8,12 @@ export default class land {
 	municipio = '';
 	class = '';
 	
-	constructor( doc, api, params) {
+	constructor( doc, api, params, scope, dialog) {
 		doc.maxBar = true;
 		this.peo = api.create;
 		this.types = params.name;
+		this.$scope = scope;
+		this.dialog = dialog.open;
 	}
 
 	reset(){
@@ -24,7 +26,9 @@ export default class land {
 
 	send(){
 		this.error = null;
-		this.peo({ name : 'people' }, {
+		this.peo({
+			name : 'people'
+		}, {
 			name     : this.name,
 			email    : this.email,
 			number   : this.movil,
@@ -35,10 +39,13 @@ export default class land {
 			if(data.error){
 				this.error = data.error;
 			} else {
-				this.reset();		
+				this.reset();
+				this.dialog({
+					scope: this.$scope,
+					template : '/template/gracias'
+				});
 			}
 		});
 		
 	}
-
 }
