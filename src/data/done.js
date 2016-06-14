@@ -47,13 +47,13 @@ schema.method({
  * @param  {Function}	Callback
  * @return {Void}
  */
-	createPayment (data, cb) {
+	createPayment (ex, cb) {
 		if(!this.methodExec){
 			return cb(new Error('Not exist method'));
 		}
 		this.methodExec.config()
 		let param = _.clone(this.toJSON());
-		_.extend(param, data);
+		_.extend(param, ex);
 		this.methodExec.get(param, (err, data) => {
 			if(err){
 				return cb(err);
