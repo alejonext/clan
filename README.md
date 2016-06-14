@@ -8,11 +8,11 @@ Debe tener instalado esto
 
 * [NodeJs](http://NodeJs.org)
 * [MongoDB](http://mongodb.org)
-* [Git](http://gitscrm.org)
+* [Git](http://gitscrm.org) Si descarga el paquete de esta web, no tiene necesitad de instalar
 
 Haga
 
-	$ git clone git@githun.com/alejonext/clan.git clan
+	$ git clone git@github.com/alejonext/clan.git clan
 
 ## Instalacion
 
@@ -22,6 +22,9 @@ La instalacion, se hace apartir de [npm](http://npmjs.org), por ende se hace
 	$ npm install
 
 ## Iniciar
+	
+> Debe tener inciado mongodb.
 
-	$ npm start
+
+	$ npm run dev
 
