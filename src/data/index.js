@@ -4,6 +4,7 @@ import * as done from './done';
 import * as municipio from './municipio';
 import * as pvd from './pvd';
 import * as people from './people';
+import {format} from 'url';
 
 /**
  * @param  {String} 	Direcion del MongoDB
@@ -13,7 +14,7 @@ export default function (uris) {
 	let urs = null;
 	if(typeof uris != 'string'){
 		uris.auth = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ':' + process.env.OPENSHIFT_MONGODB_DB_PASSWORD;
-		urs = url.format(uris);
+		urs = format(uris);
 	}
 
 	mongo.connect(urs || uris);
