@@ -6,7 +6,7 @@ default:
     html: false
 
 production:
-  host: http://10.0.1.220:2000
+  host: https://clan-lcblue.rhcloud.com/
   maxPoint : 50000000
   compress:
     style: true
