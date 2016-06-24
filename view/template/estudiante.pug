@@ -8,7 +8,7 @@ block images
 
 block selector
 	li.all-33.align-center
-		label.all-100( for="diseno" ) 
+		label.all-100( for="diseno" )
 			.circule.push-center: .click( class="{{ l.class === 'diseno' }}-check" )
 			b.color-blue= 'Diseño Gráfico'
 		input.ng-hide.all-hide#diseno( type="radio", name="class", value="diseno", ng-model="l.class",  ng-required )
@@ -18,7 +18,7 @@ block selector
 			b.color-blue Desarrollo 3D
 		input.ng-hide.all-hide#3d( type="radio", name="class", value="3d", ng-model="l.class",  ng-required )
 	li.all-33.align-center
-		label.all-100( for="video" ) 
+		label.all-100( for="video" )
 			.circule.push-center: .click( class="{{ l.class === 'video' }}-check" )
 			b.color-blue Audiovisuales
 		input.ng-hide.all-hide#video( type="radio", name="class", value="video", ng-model="l.class", ng-required )

@@ -12,7 +12,7 @@ html( ng-app=render.hash, lang="es" )
 		link( rel="stylesheet", type="text/css", href=cache('flex.css') )
 		link( rel="stylesheet", type="text/css", href=cache('start.css') )
 
-		title( ng-bind-template="{{viewTitle}} {{viewTitle ? '- ' : '' }}Clan Digital" ) CLAN Digital
+		title( ng-bind-template="{{viewTitle}} {{viewTitle ? '- ' : '' }}CLAN Digital" ) CLAN Digital
 
 		//- OG
 		meta( property="og:description", content="Clan Digital" )
@@ -48,9 +48,10 @@ html( ng-app=render.hash, lang="es" )
 				ul.menu.horizontal.white.push-left
 					li: a( href="/")
 						img(src=cache('logo-33.png'))
-						span.hide-all CLAN
+						span.hide-all CLAN Digital
 				ul.menu.horizontal.white.push-right
-					li: a( href="/donacion" ) Donativos
+					//-li: a( href="/donacion" ) Donativos
+					li: a( href="http://opensai.org/donaciones" ) Donativos
 					li: a( href="/contacto" ) Contacto
 					li
 						a.fa.fa-share-alt
@@ -67,17 +68,17 @@ html( ng-app=render.hash, lang="es" )
 		footer.all-70.medium-80.small-100.tiny-100.push-center
 			nav.ng-navigation.large-double-vertical-padding.medium-vertical-padding.small-no-padding.tiny-no-padding.push-center.align-center
 				ul.orange.breadcrumbs.double-top-padding
-					li: a.small( href="tel:+57301000000" )
+					li: a.small( href="tel:+573208192263" )
 						i.fa.fa-phone
-						| (+57) 301000000
-					li: a.small( href="mailto:clandigital@opensai.org" ) clandigital@opensai.org
-					li: a.small( href="geo:?q=Ladirecion" ) Direccion
+						| (+57) 3208192263
+					li: a.small( href="mailto:academic@opensai.org" ) academic@opensai.org
+					//- li: a.small( href="geo:?q=Ladirecion" ) Direccion
 				ul.orange.breadcrumbs
-					li: a.small( href="mailto:acdemic@opensai.org" ) acdemic@opensai.org
+					//-li: a.small( href="mailto:academic@opensai.org" ) academic@opensai.org
 					li: a.small( href="http://opensai.org" ) OpenSai
-					li: a.small( href="http://twitter.com/opensai" ) @OpenSai
-					li: a.small( href="http://facebook.com/opensai" ) /OpenSai
-				ul.orange.breadcrumbs.double-bottom-padding
-					li: a.small Bogota
-					li: a.small Colombia
+					li: a.small( href="http://twitter.com/OpenSAI" ) @OpenSAI
+					li: a.small( href="http://facebook.com/opensai.org" ) /OpenSai
+				//-ul.orange.breadcrumbs.double-bottom-padding
+					li: .small Bogota
+					li: .small Colombia
 		script(type="text/javascript", src=cache('lib.js') )
