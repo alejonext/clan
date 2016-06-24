@@ -20,8 +20,16 @@ default:
 
 production:
   ssl: true
-  mongo: mongodb://127.0.0.1:27017/clan
-  confirm: key
+  mongo:
+      protocol: mongodb
+      slashes: true
+      hostname: #{process.env.OPENSHIFT_MONGODB_DB_HOST}
+      port: #{process.env.OPENSHIFT_MONGODB_DB_PORT}
+      pathname: #{process.env.OPENSHIFT_APP_NAME}
+      pass: #{process.env.OPENSHIFT_MONGODB_DB_USERNAME}
+      user: #{process.env.OPENSHIFT_MONGODB_DB_PASSWORD}
+  confirm: #{process.env.OPENSHIFT_APP_UUID}
+  temp: #{process.env.OPENSHIFT_TMP_DIR}
   key:
     paypal:
       key: YourKey
@@ -32,8 +40,8 @@ production:
     facebook:
       key: YourKey
       secret: YourSecret
-  port: #{process.env.PORT}
-  ip: #{process.env.IP}
+  port: #{process.env.OPENSHIFT_NODEJS_PORT}
+  ip: #{process.env.OPENSHIFT_NODEJS_IP}
   app:
     api: /api
     cdn: /cdn

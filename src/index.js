@@ -5,8 +5,8 @@ import connect from './data';
 
 let path = './config';
 
-process.env.IP = process.env.IP || 'localhost';
-process.env.PORT = process.env.PORT || 3000;
+process.env.OPENSHIFT_NODEJS_IP = process.env.OPENSHIFT_NODEJS_IP || 'localhost';
+process.env.OPENSHIFT_NODEJS_PORT = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 GLOBAL._ = _;
 GLOBAL.CONFIG = konfig({ path });
 GLOBAL.db = connect(GLOBAL.CONFIG.server.mongo);

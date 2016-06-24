@@ -6,12 +6,12 @@ const stats = {
 	canceled : 2,
 	created : 0,
 	expired : 2,
-	failed : 2, 
+	failed : 2,
 	mispaid : 0,
 	pending : 0,
 };
 
-const payment = {{
+const payment = {
 	"intent": "sale",
 	"payer": {
 		"payment_method": "credit_card",

@@ -10,7 +10,13 @@ import * as people from './people';
  * @return {Object}		Objecto que se conetruye Mongo
  */
 export default function (uris) {
-	mongo.connect(uris);
+	let urs = null;
+	if(typeof uris != 'string'){
+		uris.auth = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ':' + process.env.OPENSHIFT_MONGODB_DB_PASSWORD;
+		urs = url.format(uris);
+	}
+
+	mongo.connect(urs || uris);
 	mongo.model(done.name, done.schema);
 	mongo.model(pvd.name, pvd.schema);
 	mongo.model(people.name, people.schema);
