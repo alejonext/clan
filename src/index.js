@@ -10,6 +10,7 @@ process.env.OPENSHIFT_NODEJS_PORT = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 GLOBAL._ = _;
 GLOBAL.CONFIG = konfig({ path });
 GLOBAL.db = connect(GLOBAL.CONFIG.server.mongo);
+console.log('CLAN:', process.env.npm_package_version);
 
 route().listen(GLOBAL.CONFIG.server.port, GLOBAL.CONFIG.server.ip, error => {
 	if(error){
