@@ -53,7 +53,7 @@ function renderCSS (scr, out, cb){
  * @return {Void}
  */
 function renderJS (raw, js, cb) {
-	var b = browserify({ 
+	var b = browserify({
 		debug: !GLOBAL.CONFIG.render.compress.script
 	});
 
@@ -84,7 +84,7 @@ function renderJS (raw, js, cb) {
 			basedir: path.join( __dirname, '..', '..' , '..', 'public', 'script'),
 			detectGlobals : true
 		});
-		
+
 		if( GLOBAL.CONFIG.render.compress.script ){
 			b.plugin(collapse);
 			b.transform({
@@ -130,7 +130,6 @@ function renderJS (raw, js, cb) {
  * @return {Void}
  */
 export function hash (req, res, next, valor ){
-	
 	next(valor === hexa ? null : new Error('Is not the version') );
 }
 /**
@@ -172,7 +171,7 @@ export function cache (req, res, next) {
  * @return {Void}
  */
 export function component (req, res, next){
-	if ( _.isEmpty(req.params[0]) || !jss.test(req.params[0]) || not.test(req.params[0]) || not.test(req.params.file) ){
+	if ( _.isEmpty(req.params[0]) || !jss.test(req.params[0]) || not.test(req.params[0]) || not.test(req.params.file)){
 		return next(new Error('Not Found'));
 	}
 	async.map(process.mainModule.paths, (uis, otro) => {
@@ -187,8 +186,8 @@ export function component (req, res, next){
 		var file;
 		for (var i = results.length - 1; i >= 0; i--) {
 			if(results[i]){
-				file = results[i];	
-			} 
+				file = results[i];
+			}
 		}
 
 		next(file || new Error('No exist the file'));
@@ -225,7 +224,7 @@ export function CSS (req, res, next){
 		if(err && _.isEmpty(reslt.scss) ){
 			return next(err);
 		}
-		
+
 		if ( _.isEmpty(reslt.css) || reslt.scss.mtime > reslt.css.mtime || req.start ){
 			return renderCSS(scssPath, cssPath, next );
 		}
@@ -246,7 +245,7 @@ export function IMG (req, res, next){
 		return next(new Error('Not Found'));
 	}
 	var com = path.join(__dirname, '..', '..' , '..', 'public', 'image', req.params.file.split('-')[0] + '.' + req.params.img );
-	
+
 	fs.stat(com, (err, exists) => {
 		if(err || !exists.isFile() ){
 			return next(new Error('No exist file'));
@@ -290,7 +289,7 @@ export function JS (req, res, next) {
 		if ( _.isEmpty(reslt.out) || reslt.ins.mtime > reslt.out.mtime  || req.start){
 			return renderJS(InPath, OutPath, next );
 		}
-		
+
 		next(OutPath);
 	});
 }
