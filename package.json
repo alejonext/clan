@@ -73,7 +73,7 @@
     "mongoose-intl-phone-number": "^0.4.3",
     "ng-dialog": "^0.6.1",
     "ngsticky": "^1.7.12",
-    "node-sass": "^3.7.0",
+    "node-sass": "^3.8.0",
     "paypal-rest-sdk": "^1.6.8",
     "pug": "^2.0.0-alpha8",
     "uglifyify": "^3.0.1",
