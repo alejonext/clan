@@ -2,7 +2,7 @@
   "name": "clan",
   "version": "0.1.7",
   "description": "Servidor de Mochileros",
-  "main": "bin/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src -d lib",
