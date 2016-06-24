@@ -7,7 +7,7 @@ import {cache} from './cdn';
  * @return {Object}      Apiccion de express configurada para que solo envie un HTML
  */
 export default function () {
-	var app = express(); 
+	var app = express();
 	app.locals.cache = cache;
 	app.locals.render = GLOBAL.CONFIG.render;
 	app.locals.render.hash = ( new Buffer(process.env.npm_package_version, 'utf8' ) ).toString('hex');

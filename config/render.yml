@@ -6,7 +6,7 @@ default:
     html: false
 
 production:
-  host: https://clan-lcblue.rhcloud.com/
+  host: https://clan.opensai.org/
   maxPoint : 50000000
   compress:
     style: true
