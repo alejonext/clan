@@ -24,7 +24,7 @@ export function cache ( pat, isLib){
 	};
 
 	cdns.pathname += '/';
-	
+
 	if( types.length < 0 ){
 		return new Error('Not GLOBAL.path file');
 	}
@@ -57,6 +57,6 @@ export default function () {
 	app.all('/js/:hash.:file.js',	render.JS,	render.send ); // Rendirizador de JavaScript
 	app.all(`/${isImg}/:hash.:file.${isImg}`,render.IMG ); // Rendirazador de Imagenes simples
 	app.all('/html/:hash.:file.html',render.html ); // Renderizador de HTML
-	
-	return app;	
+
+	return app;
 }

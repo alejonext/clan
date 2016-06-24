@@ -11,7 +11,6 @@ import envify from 'envify/custom';
 import mime from 'mime';
 import {spawn} from 'child_process';
 
-const hexa = ( new Buffer(process.env.npm_package_version, 'utf8' ) ).toString('hex');
 const time = 31104000;
 const jss = /(css|swf|map|otf|eot|svg|ttf|woff|woff2)$/i;
 const not = /(?:Gruntfile|gulpfile|conf|example|demo|support|specs|builder|bin|readme|src|test|scss|\.\.)/i;
@@ -130,6 +129,7 @@ function renderJS (raw, js, cb) {
  * @return {Void}
  */
 export function hash (req, res, next, valor ){
+	const hexa = ( new Buffer(process.env.npm_package_version, 'utf8' ) ).toString('hex');
 	next(valor === hexa ? null : new Error('Is not the version') );
 }
 /**
