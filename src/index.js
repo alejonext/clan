@@ -5,7 +5,6 @@ import connect from './data';
 import packe from '../package.json';
 
 let path = './config';
-
 process.env.npm_package_version = process.env.npm_package_version || packe.version;
 process.env.OPENSHIFT_NODEJS_IP = process.env.OPENSHIFT_NODEJS_IP || 'localhost';
 process.env.OPENSHIFT_NODEJS_PORT = process.env.OPENSHIFT_NODEJS_PORT || 3000;
