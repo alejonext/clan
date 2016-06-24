@@ -12,9 +12,6 @@ import messages from 'angular-messages';
 import animate from 'angular-animate';
 import dialog from 'ng-dialog';
 import ngMoment from 'angular-moment';
-import angulartics from 'angulartics';
-import analytics from 'angulartics-google-analytics';
-import tagManager from 'angulartics-google-tag-manager';
 
 // Thinks
 import config from './service/config';
@@ -38,9 +35,6 @@ angular
 		animate,
 		dialog,
 		ngMoment,
-		angulartics,
-		analytics,
-		tagManager,
 		'sticky',
 		'viewhead',
 		'ng'
