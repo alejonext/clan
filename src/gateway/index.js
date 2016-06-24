@@ -1,8 +1,8 @@
 
 import * as paypal from './paypal';
-import * as coinbase from './coinbase';
+import * as card from './card';
 
-export var method = { paypal, coinbase };
+export var method = { paypal, coinbase, card };
 export var list = [];
 export var currency = 'USD BTC COP EUR'.split(' ');
 

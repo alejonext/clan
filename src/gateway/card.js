@@ -46,7 +46,7 @@ export function get (params, callback) {
 		nowPay.redirect_urls.return_url = params.success_url;
 		nowPay.redirect_urls.cancel_url = params.cancel_url;
 		nowPay.payer.funding_instruments[0].credit_card_token.credit_card_id = card;
-		
+
 		nowPay.transactions.push({
 			'amount': {
 				'currency': 'USD',
