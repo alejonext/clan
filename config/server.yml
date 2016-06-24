@@ -32,16 +32,7 @@ production:
   temp: #{process.env.OPENSHIFT_TMP_DIR}
   key:
     paypal:
-      key: YourKey
-      secret: YourSecret
-    coinbase:
-      key: YourKey
-      secret: YourSecret
-    facebook:
-      key: YourKey
-      secret: YourSecret
+      key: #{process.env.PAYPAL_KEY}
+      secret: #{process.env.PAYPAL_SECRET}
   port: #{process.env.OPENSHIFT_NODEJS_PORT}
   ip: #{process.env.OPENSHIFT_NODEJS_IP}
-  app:
-    api: /api
-    cdn: /cdn
