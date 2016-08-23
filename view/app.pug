@@ -1,84 +1,40 @@
-doctype html
-html( ng-app=render.hash, lang="es" )
-	head( prefix="og:http://ogp.me/ns# fb:http://ogp.me/ns/fb# product:http://ogp.me/ns/product#" )
-		base( href="/")
+.all-100.blur.minum( [style.backgroundImage]="image" )
+	nav.ng-navigation.ng-grid.mosxh.bar
+		ul.menu.horizontal.white.push-left
+			li: a( href="/")
+				img(src='cdn.clan/png/logo-33.png')
+				span.hide-all CLAN Digital
+			li( [hidden]="show" )
+				a: span {{name}}
+		ul.menu.horizontal.white.push-right
+			//-li: a( href="/donacion" ) Donativos
+			li: a( href="http://opensai.org/donaciones" ) Donativos
+			li: a( href="/contacto" ) Contacto
+			li
+				a.fa.fa-share-alt
+				ul.submenu
+					li: a.fa.fa-facebook-official
+					li: a.fa.fa-twitter
+	nav.ng-navigation.ng-grid.mosxh
+		ul.pagination.chevron
+			li.previous: a.put( (click)="isClick(-1)" ): span Atras
+			li.next: a.put( (click)="isClick(1)" ): span Siguiente
 
-		meta(charset='utf-8')
-		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+.all-100.blur: router-outlet
 
-		meta( name="viewport", content="width=device-width, initial-scale=1" )
-		link( href='https://fonts.googleapis.com/css?family=Poppins:400,600,500,300&subset=latin,devanagari,latin-ext' rel='stylesheet' type='text/css')
-		link( rel="stylesheet", type="text/css", href=cache('ink.css') )
-		link( rel="stylesheet", type="text/css", href=cache('flex.css') )
-		link( rel="stylesheet", type="text/css", href=cache('start.css') )
-
-		title( ng-bind-template="{{viewTitle}} {{viewTitle ? '- ' : '' }}CLAN Digital" ) CLAN Digital
-
-		//- OG
-		meta( property="og:description", content="Clan Digital" )
-		meta( property="og:locale", content="es" )
-		meta( property="og:title", content="Clan Digital" )
-		meta( property="og:type", content="article")
-		meta( property="og:url", content="http://clan.opensai.org/" )
-
-		//- FB
-		meta( property="fb:app_id", content="512044862330230")
-
-		//- Twitter
-		meta( name="twitter:card", content="summary_large_image" )
-		meta( name="twitter:site", content="@openClanDIGITAL")
-
-		//- Carrusel
-		meta( name="carrusel", content=cache('carrusel1-960.jpg') )
-		meta( name="carrusel", content=cache('carrusel2-960.jpg') )
-		meta( name="carrusel", content=cache('carrusel4-960.jpg'), property="og:image",)
-		meta( name="carrusel", content=cache('carrusel3-960.jpg') )
-		meta( name="carrusel", content=cache('carrusel5-960.jpg') )
-		meta( name="carrusel", content=cache('carrusel6-960.jpg') )
-		meta( name="carrusel", content=cache('carrusel7-960.jpg') )
-		meta( name="carrusel", content=cache('carrusel9-960.jpg') )
-		meta( name="carrusel", content=cache('carrusel10-960.jpg') )
-		meta( name="carrusel", content=cache('carrusel11-960.jpg') )
-		meta( name="carrusel", content=cache('carrusel12-960.jpg') )
-		meta( name="carrusel", content=cache('carrusel13-960.jpg') )
-
-	body.all-100( ng-controller="app as a" )
-		.all-100.blur.minum( ng-height="a.image" )
-			nav.ng-navigation.ng-grid.mosxh.bar
-				ul.menu.horizontal.white.push-left
-					li: a( href="/")
-						img(src=cache('logo-33.png'))
-						span.hide-all CLAN Digital
-				ul.menu.horizontal.white.push-right
-					//-li: a( href="/donacion" ) Donativos
-					li: a( href="http://opensai.org/donaciones" ) Donativos
-					li: a( href="/contacto" ) Contacto
-					li
-						a.fa.fa-share-alt
-						ul.submenu
-							li: a.fa.fa-facebook-official
-							li: a.fa.fa-twitter
-			nav.ng-navigation.ng-grid.mosxh
-				ul.pagination.chevron
-					li.previous: a.put( ng-click="a.isClick(-1)" ): span Atras
-					li.next: a.put( ng-click="a.isClick(1)" ): span Siguiente
-
-		.all-100.blur( ng-view )
-
-		footer.all-70.medium-80.small-100.tiny-100.push-center
-			nav.ng-navigation.large-double-vertical-padding.medium-vertical-padding.small-no-padding.tiny-no-padding.push-center.align-center
-				ul.orange.breadcrumbs.double-top-padding
-					li: a.small( href="tel:+573208192263" )
-						i.fa.fa-phone
-						| (+57) 3208192263
-					li: a.small( href="mailto:academic@opensai.org" ) academic@opensai.org
-					//- li: a.small( href="geo:?q=Ladirecion" ) Direccion
-				ul.orange.breadcrumbs
-					//-li: a.small( href="mailto:academic@opensai.org" ) academic@opensai.org
-					li: a.small( href="http://opensai.org" ) OpenSai
-					li: a.small( href="http://twitter.com/OpenSAI" ) @OpenSAI
-					li: a.small( href="http://facebook.com/opensai.org" ) /openSAI.org
-				//-ul.orange.breadcrumbs.double-bottom-padding
-					li: .small Bogota
-					li: .small Colombia
-		script(type="text/javascript", src=cache('lib.js') )
+footer.all-70.medium-x80.small-100.tiny-100.push-center
+	nav.ng-navigation.large-double-vertical-padding.medium-vertical-padding.small-no-padding.tiny-no-padding.push-center.align-center
+		ul.orange.breadcrumbs.double-top-padding
+			li: a.small( href="tel:+573208192263" )
+				i.fa.fa-phone
+				| (+57) 3208192263
+			li: a.small( href="mailto:academic@opensai.org" ) academic@opensai.org
+			//- li: a.small( href="geo:?q=Ladirecion" ) Direccion
+		ul.orange.breadcrumbs
+			//-li: a.small( href="mailto:academic@opensai.org" ) academic@opensai.org
+			li: a.small( href="http://opensai.org" ) OpenSai
+			li: a.small( href="http://twitter.com/OpenSAI" ) @OpenSAI
+			li: a.small( href="http://facebook.com/opensai.org" ) /openSAI.org
+		//-ul.orange.breadcrumbs.double-bottom-padding
+			li: .small Bogota
+			li: .small Colombia

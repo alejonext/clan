@@ -1,0 +1,15 @@
+.double-vertical-padding.all-60.medium-75.small-100.tiny-100.push-center.push-center: .ng-grid.from-ng.double-top-padding
+	h1.ng-hide.all-hide ¡Cuentanos!
+	.column-group.gutters
+		.control-group.all-50.small-100.tiny-100
+			label.ng-hide.all-hide( for="name" ) Nombre
+			.control.required: input.half-padding.all-100#name( placeholder="Nombres y Apellidos *", type="text", [(model)]="data.name", required )
+		.control-group.all-50.small-100.tiny-100
+			label.ng-hide.all-hide(for="email") Email
+			.control.required: input.half-padding.all-100#email( placeholder="E-Mail *", type="email", [(model)]="data.email", required  )
+	.control-group.all-100
+		label.ng-hide.all-hide(for="email") Email
+		.control.required: textarea.half-padding.all-100#email( placeholder="¡Cuentanos!", [(model)]="data.text", required )
+
+	.control-group.top-space
+		button.ng-button.orange.all-100.half-padding( (click)="isSender()" ) Enviar
