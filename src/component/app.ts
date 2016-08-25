@@ -38,11 +38,11 @@ export class App implements OnInit {
 
 	putUrl(data): void {
 		this.big = data.url.length === 1 ? 500 : 47;
-		this.isClick(this.data.length - 1);
 	}
 
 	putPhotos(data: string[] = []): void {
 		this.data = data;
+		this.isClick(this.data.length - 1);
 	}
 
 	isClick(num: number): void {
