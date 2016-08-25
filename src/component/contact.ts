@@ -5,7 +5,8 @@ import { Events } from '../service/event';
 
 @Component({
 	moduleId: __filename,
-	template: require('../../view/contact.pug')
+	template: require('../../view/contact.pug'),
+	providers: [ Events ]
 })
 export class Contact {
 	data = {};

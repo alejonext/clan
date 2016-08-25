@@ -1,11 +1,12 @@
 import * as express from "express";
 import * as render from './render';
+const CONFIG = require("../../config.json");
 
 const isImg = ':img(jpg|gif|png|ico)';
 
 export var cdn = express();
 
-cdn.set('host', 'cdn.*.org');
+cdn.set('host', CONFIG.cdn);
 
 cdn.set('x-powered-by', false);
 //cdn.use(render.cache);

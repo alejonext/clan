@@ -1,9 +1,10 @@
 import * as moment from 'moment';
+const CONFIG = require("../../config.json");
 
 const ical = require('ical');
 
 export function all (req, res, next) {
-	ical.fromURL(process.env.CAL_EVENTS, {}, (error, data) => {
+	ical.fromURL(process.env.CAL_EVENTS || CONFIG.events, {}, (error, data) => {
 		if(error){
 			return next(error);
 		}

@@ -11,7 +11,7 @@ var commonConfig = {
       { test: /\.ts$/, loaders: ['ts-loader', 'angular2-template-loader'] },
       { test: /\.pug$/, loader: 'pug-html-loader' },
       { test: /\.css$/, loader: 'raw-loader' },
-      { test: /\.json$/, loader: 'raw-loader' }
+      { test: /\.json$/, loader: 'json-loader' }
     ],
   },
   plugins: [

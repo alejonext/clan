@@ -1,0 +1,9 @@
+{
+	"api" : "api.clan.dev",
+	"cdn" : "cdn.clan.dev",
+	"www" : "clan.dev",
+	"port" : 3000,
+	"host" : "localhost",
+	"dropbox" : "<-- Your KEY -->",
+	"header" : "Photos"
+}

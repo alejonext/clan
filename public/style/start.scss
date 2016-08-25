@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @import "contrib/compass/css3";
 @import "contrib/compass/utilities";
- 
+
 // IMPORT CONFIG FILES (THESE CONTAIN VARIABLE DEFINITIONS)
 @import "config/common";
 @import "config/typography";
@@ -23,81 +23,78 @@
 
 @include generate-quick-start($grid-breakpoints);
 
-
-$max-padding : 500px;
-
-html, body, .minum {
-  animation: all linear 1s;
+html, body, .minum, .fader {
+	animation: all linear 1s;
 }
 
 .justi {
-  p {
-    text-align: justify;
-  }
+	p {
+		text-align: justify;
+	}
 }
 
 h1, h2, h3, h4, h5, h6 {
-  &.white {
-    color : $white;
-  }
+	&.white {
+		color : $white;
+	}
 }
 
 .toBisel {
-  flex-direction: row;
-  display: flex;
-  flex: 1 0 auto;
-  .all-50 {
-    flex: 1 1 0%;
-  }
-  .bisel {
-    border-style : solid;
-    border-width : 2em;
-    border-color : $white;
+	flex-direction: row;
+	display: flex;
+	flex: 1 0 auto;
+	.all-50 {
+		flex: 1 1 0%;
+	}
+	.bisel {
+		border-style : solid;
+		border-width : 2em;
+		border-color : $white;
 
-    h1, h2, h3, h4, h5, h6 {
-      color : $white;
-    }
+		h1, h2, h3, h4, h5, h6 {
+			color : $white;
+		}
 
-    &.all-50 {
-      flex: 0 0 50%;
-    }
-    &.all-15 {
-      flex: 0 0 15%;
-    }
-    &.orange {
-      border-left-color : shade($orange,25%);
-      border-right-color : shade($orange,25%);
-      background-color: shade($orange,30%);
-      border-top-width: 0;
-      &.done {
-        border-top-width: 2em;
-      }
-    }
-    &.blue {
-      border-left-color : shade($blue,25%);
-      border-right-color :shade($blue,25%);
-      background-color: shade($blue,30%);
-    }
-  }  
+		&.all-50 {
+			flex: 0 0 50%;
+		}
+		&.all-15 {
+			flex: 0 0 15%;
+		}
+		&.orange {
+			border-left-color : shade($orange,25%);
+			border-right-color : shade($orange,25%);
+			background-color: shade($orange,30%);
+			border-top-width: 0;
+			&.done {
+				border-top-width: 2em;
+			}
+		}
+		&.blue {
+			border-left-color : shade($blue,25%);
+			border-right-color :shade($blue,25%);
+			background-color: shade($blue,30%);
+		}
+	}
 }
 
 .orange {
-  background: $orange;
-  color: $white;
+	background: $orange;
+	color: $white;
 }
 
 text {
-  font-family : $sans-serif-font-stack;
-  &.medi {
-    font-size : 11.5px;
-  }
-  &.fill-white {
-    fill : $white;
-    font-size : 13.1289px;
-    &.big {
-      font-size : 16px;
-    }
-  }
+	font-family : $sans-serif-font-stack;
+	&.medi {
+		font-size : 11.5px;
+	}
+	&.fill-white {
+		fill : $white;
+		font-size : 13.1289px;
+		&.big {
+			font-size : 16px;
+		}
+	}
 }
 
 
@@ -107,303 +104,66 @@ text {
 }
 
 .hand {
-  cursor: pointer;
-  text-decoration: none;
-  circle, path {
-    fill : $white;
-  }
+	cursor: pointer;
+	text-decoration: none;
+	circle, path {
+		fill : $white;
+	}
 
-  &:hover {
-    text-decoration: none;
-    circle, path {
-      fill : $orange;
-    }
-  }
-}
-
-.max-padding {
-	padding-top: $max-padding;
+	&:hover {
+		text-decoration: none;
+		circle, path {
+			fill : $orange;
+		}
+	}
 }
 
 .minum {
 	position: fixed;
+	overflow: hidden;
+	background-color: rgba(256,256,256,0.9);
+	z-index: 10000;
+}
+
+.image-carusel {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
-  overflow: hidden;
-  height: $max-padding;
-  z-index: 10000;
 }
-
-.mosxh {
-  max-height: $max-padding - 47px;
-  height: 100%;
-  min-height: 1px;
-  //background-color: rgba(256,256,256,0.2);
-  &.bar {
-    background-color: rgba(256,256,256,0.9);
-    max-height: 47px;
-  }
-}
-
 
 
 ul.menu.horizontal.black {
-  z-index: 1000;
+	z-index: 1000;
 }
 
 .showdrop {
-  filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5));
+	filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5));
 }
 
 ul {
 
-  &.select {
-    list-style-type: none;
-    p {
-      color : $blue;
-    }
-    .circule {
-      height: 2em;
-      width: 2em;
-      min-height: 2em;
-      min-width: 2em;
-      border: solid $black;
-      @include border-radius( 50%); 
-      .true-check {
-        height: 1em;
-        width: 1em;
-        min-height: 1em;
-        min-width: 1em;
-        background-color: $orange;
-        margin-left: 0.33em;
-        margin-top: 0.33em;
-        @include border-radius( 50%); 
-      }
-    }
-  }
-}
-
-@-webkit-keyframes ngdialog-fadeout {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-
-@keyframes ngdialog-fadeout {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-
-@-webkit-keyframes ngdialog-fadein {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-
-@keyframes ngdialog-fadein {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-
-.ngdialog {
-  box-sizing: border-box;
-  background: rgba(256, 256, 256, 0.8);
-  * {
-    box-sizing: inherit;
-    &:before, &:after {
-      box-sizing: inherit;
-    }
-  }
-  position: fixed;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  z-index: 10000;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  &.ngdialog-disabled-animation {
-    -webkit-animation: none !important;
-    animation: none !important;
-    .ngdialog-overlay, .ngdialog-content {
-      -webkit-animation: none !important;
-      animation: none !important;
-    }
-  }
-}
-
-.ngdialog-overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  -webkit-backface-visibility: hidden;
-  -webkit-animation: ngdialog-fadein 0.5s;
-  animation: ngdialog-fadein 0.5s;
-}
-
-.ngdialog-no-overlay {
-  pointer-events: none;
-}
-
-.ngdialog.ngdialog-closing .ngdialog-overlay {
-  -webkit-backface-visibility: hidden;
-  -webkit-animation: ngdialog-fadeout 0.5s;
-  animation: ngdialog-fadeout 0.5s;
-}
-
-.ngdialog-content {
-  -webkit-backface-visibility: hidden;
-  -webkit-animation: ngdialog-fadein 0.5s;
-  animation: ngdialog-fadein 0.5s;
-  pointer-events: all;
-}
-
-.ngdialog.ngdialog-closing .ngdialog-content {
-  -webkit-backface-visibility: hidden;
-  -webkit-animation: ngdialog-fadeout 0.5s;
-  animation: ngdialog-fadeout 0.5s;
-}
-
-.ngdialog-close:before {
-  font-family: 'Helvetica', Arial, sans-serif;
-  content: '\00D7';
-  cursor: pointer;
-}
-
-html.ngdialog-open, body.ngdialog-open {
-  overflow: hidden;
-  .blur{
-    filter : blur(3px);
-  }
-  .bar {
-    background-color: transparent;
-  }
-}
-
-@-webkit-keyframes ngdialog-flyin {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-40px);
-    transform: translateY(-40px);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-
-
-@keyframes ngdialog-flyin {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-40px);
-    transform: translateY(-40px);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-
-
-@-webkit-keyframes ngdialog-flyout {
-  0% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(-40px);
-    transform: translateY(-40px);
-  }
-}
-
-
-@keyframes ngdialog-flyout {
-  0% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(-40px);
-    transform: translateY(-40px);
-  }
-}
-
-.ngdialog.ngdialog-theme-default {
-  &.ngdialog-closing .ngdialog-content {
-    -webkit-animation: ngdialog-flyout 1.5s;
-    animation: ngdialog-flyout 1.5s;
-  }
-  .ngdialog-content {
-    -webkit-animation: ngdialog-flyin 1.5s;
-    animation: ngdialog-flyin 1.5s;
-    position: relative;
-  }
-  .ngdialog-close {
-    border-radius: 5px;
-    cursor: pointer;
-    position: absolute;
-    right: 0;
-    top: 0;
-    &:before {
-      background: transparent;
-      border-radius: 3px;
-      color: #bbb;
-      content: '\00D7';
-      font-size: 26px;
-      font-weight: 400;
-      height: 30px;
-      line-height: 26px;
-      position: absolute;
-      right: 3px;
-      text-align: center;
-      top: 3px;
-      width: 30px;
-    }
-    &:hover:before, &:active:before {
-      color: #777;
-    }
-  }
-}
-
-@media (max-width: 568px) {
-  .ngdialog.ngdialog-theme-default .ngdialog-button:focus {
-    -webkit-animation: none;
-    animation: none;
-  }
+	&.select {
+		list-style-type: none;
+		p {
+			color : $blue;
+		}
+		.circule {
+			height: 2em;
+			width: 2em;
+			min-height: 2em;
+			min-width: 2em;
+			border: solid $black;
+			@include border-radius( 50%);
+			.true-check {
+				height: 1em;
+				width: 1em;
+				min-height: 1em;
+				min-width: 1em;
+				background-color: $orange;
+				margin-left: 0.33em;
+				margin-top: 0.33em;
+				@include border-radius( 50%);
+			}
+		}
+	}
 }

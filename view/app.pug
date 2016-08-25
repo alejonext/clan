@@ -1,8 +1,8 @@
-.all-100.blur.minum( [style.backgroundImage]="image" )
-	nav.ng-navigation.ng-grid.mosxh.bar
+.all-100.minum
+	nav.ng-navigation.ng-grid
 		ul.menu.horizontal.white.push-left
 			li: a( href="/")
-				img(src='cdn.clan/png/logo-33.png')
+				img(src='//cdn.clan.dev/png/logo-33.png')
 				span.hide-all CLAN Digital
 			li( [hidden]="show" )
 				a: span {{name}}
@@ -15,12 +15,13 @@
 				ul.submenu
 					li: a.fa.fa-facebook-official
 					li: a.fa.fa-twitter
-	nav.ng-navigation.ng-grid.mosxh
-		ul.pagination.chevron
-			li.previous: a.put( (click)="isClick(-1)" ): span Atras
-			li.next: a.put( (click)="isClick(1)" ): span Siguiente
 
-.all-100.blur: router-outlet
+nav.ng-navigation.all-100.fader.image-carusel( [style.backgroundImage]="image", [style.height.px]="big" )
+	ul.pagination.chevron( [hidden]="big < 100" )
+		li.previous: a.put( (click)="isClick(-1)" ): span Atras
+		li.next: a.put( (click)="isClick(1)" ): span Siguiente
+
+router-outlet.hide-all
 
 footer.all-70.medium-x80.small-100.tiny-100.push-center
 	nav.ng-navigation.large-double-vertical-padding.medium-vertical-padding.small-no-padding.tiny-no-padding.push-center.align-center

@@ -10,15 +10,6 @@
     },
     "underscore/underscore.d.ts": {
       "commit": "73e712534896baf8f17b30bbf4f45f05d77f48c5"
-    },
-    "node-sass/node-sass.d.ts": {
-      "commit": "73e712534896baf8f17b30bbf4f45f05d77f48c5"
-    },
-    "node/node.d.ts": {
-      "commit": "73e712534896baf8f17b30bbf4f45f05d77f48c5"
-    },
-    "npm/npm.d.ts": {
-      "commit": "73e712534896baf8f17b30bbf4f45f05d77f48c5"
     }
   }
 }

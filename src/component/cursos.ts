@@ -5,11 +5,12 @@ import { Events } from '../service/event';
 
 @Component({
 	moduleId: __filename,
-	template: require('../../view/cursos.pug')
+	template: require('../../view/cursos.pug'),
+	providers: [ Events ]
 })
 export class Cursos {
 	select: any;
-	events: any[] = [];
+	events: any;
 	data: any;
 
 	constructor(

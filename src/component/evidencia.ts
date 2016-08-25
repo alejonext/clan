@@ -2,14 +2,16 @@ import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { Http } from '@angular/http';
 import { Events } from '../service/event';
+import { Photos } from '../service/photos';
 
 @Component({
 	moduleId: __filename,
-	template: require('../../view/evidencia.pug')
+	template: require('../../view/evidencia.pug'),
+	providers: [ Events, Photos ]
 })
 export class Evidencias {
 	select: any;
-	events: any[] = [];
+	events: any;
 	data: any;
 
 	constructor(

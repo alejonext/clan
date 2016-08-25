@@ -1,18 +1,19 @@
 import * as moment from "moment";
-
+//
 import * as fs from "fs";
-import * as path from "path";
+
+import { join } from "path";
+import { tmpdir } from 'os';
+import { lookup } from "mime";
+import { spawn } from "child_process";
 
 import * as _ from "underscore";
-import * as mime from "mime";
-import { spawn } from "child_process";
 
 const async = require("async");
 const sass = require("node-sass");
 
 const COMPRESS = true;
-const ROOT = path.join(__dirname, '..', '..');
-const TEMP = path.join(__dirname, 'TMP');
+const ROOT = join(__dirname, '..', '..', '..', 'public');
 const TIME = 31104000;
 const JSS = /(css|swf|map|otf|eot|svg|ttf|woff|woff2|js)$/i;
 const NOT = /(?:Gruntfile|gulpfile|conf|example|demo|support|specs|builder|bin|readme|src|test|scss|\.\.)/i;
@@ -32,8 +33,8 @@ function renderCSS (scr, out, cb){
 		sourceComments : !COMPRESS,
 		outputStyle: COMPRESS ? 'compressed' : 'nested',
 		includePaths : [
-			path.join(ROOT, 'style', 'lib' ),
-			path.join(ROOT, 'style', 'contrib' )
+			join(ROOT, 'style', 'lib' ),
+			join(ROOT, 'style', 'contrib' )
 		]
 	},  (err, result) => {
 		if(err){
@@ -77,9 +78,9 @@ export function component (req, res, next){
 	}
 
 	async.map(process.mainModule.paths, (uis, otro) => {
-		var file = path.join(uis, _.dasherize(req.params.file), req.params[0]);
-		fs.exists(file, exist => {
-			otro( exist ? file : null );
+		var file = join(uis, _.dasherize(req.params.file), req.params[0]);
+		fs.exists(file, found => {
+			otro( found ? file : null );
 		});
 	}, (err, results) => {
 		if(err){
@@ -107,16 +108,15 @@ export function CSS (req, res, next){
 	if ( NOT.test(req.params.file) ){
 		return next(new Error('Not Found'));
 	}
-	var scssPath = path.join(ROOT, 'style', req.params.file + '.scss' );
-	var cssPath = path.join(TEMP, req.params.file + '.css' );
-
+	var scssPath = join(ROOT, 'style', req.params.file + '.scss' );
+	var cssPath = join(tmpdir(), req.params.file + '.css' );
 	async.parallel({
 		scss (callback){
 			fs.stat(scssPath, callback);
 		},
 		css (callback){
-			fs.exists(cssPath, exist => {
-				if(exist){
+			fs.exists(cssPath, found => {
+				if(found){
 					return fs.stat(cssPath, callback);
 				}
 				callback();
@@ -146,16 +146,16 @@ export function IMG (req, res, next){
 	if ( /\.\./.test(req.params.file) ){
 		return next(new Error('Not Found'));
 	}
-	var com = path.join(ROOT, 'image', req.params.file.split('-')[0] + '.' + req.params.img );
+	var com = join(ROOT, 'image', req.params.file.split('-')[0] + '.' + req.params.img );
 
-	fs.stat(com, (err, exists) => {
-		if(err || !exists.isFile() ){
+	fs.stat(com, (err, found) => {
+		if(err || !found.isFile() ){
 			return next(new Error('No exist file'));
 		}
-		res.header('Last-Modified', moment(exists.mtime).toString() );
+		res.header('Last-Modified', moment(found.mtime).toString() );
 		//  '-depth', 10, '-colors', 50,
 		var convert = spawn('convert', [ com, '+dither', '-resize', req.params.file.split('-')[1], '-' ]);
-		res.contentType( mime.lookup(com) );
+		res.contentType( lookup(com) );
 		convert.stdout.pipe( res );
 	});
 }
@@ -168,12 +168,11 @@ export function IMG (req, res, next){
  * @return {Void}
  */
 export function JS (req, res, next) {
-	if ( !NOT.test(req.params.file) ){
+	if ( NOT.test(req.params.file) ){
 		return next(new Error('Not Found'));
 	}
 
-	var InPath = path.join( ROOT, 'script', req.params.file  );
-
+	var InPath = join( ROOT, 'script', req.params.file + '.js' );
 	next(InPath || new Error('No exist the file'));
 }
 
@@ -189,13 +188,13 @@ export function send (file, req, res, next) {
 		return next( file instanceof Error ? file : new Error(file.toString().replace(/error(\s)?:/i, '') ) );
 	}
 
-	fs.stat(file, (err, exists) => {
-		if(err || !exists.isFile() ){
+	fs.stat(file, (err, found) => {
+		if(err || !found.isFile() ){
 			return next( err || new Error('Not exist file ' + file));
 		}
-		res.header('Last-Modified', moment(exists.mtime).toString() );
-		res.contentType( mime.lookup(file) );
-		res.header('Content-Length', exists.size );
+		res.header('Last-Modified', moment(found.mtime).toString() );
+		res.contentType( lookup(file) );
+		res.header('Content-Length', found.size );
 		var stream = fs.ReadStream( file );
 		stream.setMaxListeners(0);
 		//res.on('close', stream.destroy );
